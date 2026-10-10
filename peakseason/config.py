@@ -31,7 +31,9 @@ class Settings(BaseSettings):
     classify_deadline_min: float = 90
     window_days: int = 7
     fetch_days: int = 10
-    inat_user_agent: str = "PeakSeason/0.1 (+https://github.com/peakseason; open-source hackathon)"
+    inat_user_agent: str = (
+        "PeakSeason/0.1 (+https://github.com/klee1611/peak-season; open-source hackathon)"
+    )
 
 
 def get_settings() -> Settings:
