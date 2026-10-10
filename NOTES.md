@@ -75,3 +75,19 @@ is the next check. First attempt crashed on a transient DNS error; `validate.py`
 unfetchable photo instead of aborting.
 
 **Decision (developer, 2026-10-10):** set `validated: true` for both maple and sakura.
+
+## First global run (Sat Oct 10, 02:27–03:28 UTC, run 38017388471)
+
+- Whole job 61 min (ingest step 3,680 s). Model cache hit, so no download.
+- Maple: 5,599 observations worldwide in 10 days, 5,342 usable, 4,685 with a displayable photo,
+  3,059 cells, 81 with a "Colored Leaves" annotation. Sakura: 90 observations, 72 cells.
+- Classified 80 photos (budget), median **44.2 s**, max 93.9 s on the runner CPU; 29 cells got
+  new photos; 3,172 photos left for later runs.
+- Exported 76 cells (27 with a stage, 3 at peak: around Toronto, Western Europe and Moscow) in
+  29 shards totalling 128 KB.
+- SerpApi: 25 queries planned, skipped (no key yet).
+- The run used 61 of 120 minutes, so `MAX_PHOTOS_PER_RUN` is now 110 (repo variable); the
+  90-minute classification deadline still guarantees export and commit.
+- Coverage is the honest limit of free CPU inference: ~220 photos/day against ~3,000 new
+  photos per 10 days. The cache keeps progress across runs, and a hosted Gemma endpoint
+  (`MODEL_BASE_URL`) is the scaling path.
