@@ -1,0 +1,51 @@
+{
+ "total_results": 7,
+ "page": 1,
+ "per_page": 30,
+ "results": [
+  {
+   "id": 36,
+   "label": "Leaves",
+   "values": [
+    {
+     "id": 37,
+     "label": "Breaking Leaf Buds"
+    },
+    {
+     "id": 38,
+     "label": "Green Leaves"
+    },
+    {
+     "id": 39,
+     "label": "Colored Leaves"
+    },
+    {
+     "id": 40,
+     "label": "No Live Leaves"
+    }
+   ]
+  },
+  {
+   "id": 12,
+   "label": "Flowers and Fruits",
+   "values": [
+    {
+     "id": 13,
+     "label": "Flowers"
+    },
+    {
+     "id": 14,
+     "label": "Fruits or Seeds"
+    },
+    {
+     "id": 15,
+     "label": "Flower Buds"
+    },
+    {
+     "id": 21,
+     "label": "No Flowers or Fruits"
+    }
+   ]
+  }
+ ]
+}

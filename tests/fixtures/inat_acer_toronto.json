@@ -1,0 +1,810 @@
+{
+ "total_results": 30,
+ "per_page": 200,
+ "results": [
+  {
+   "id": 404767905,
+   "uri": "https://www.inaturalist.org/observations/404767905",
+   "location": "43.7277857195,-79.4901679829",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": 4,
+   "time_observed_at": "2026-09-30T13:11:44-04:00",
+   "observed_on": "2026-09-30",
+   "place_guess": "Toronto, CA-ON, CA",
+   "taxon": {
+    "id": 157919,
+    "name": "Acer leucoderme"
+   },
+   "photos": [
+    {
+     "id": 748161955,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/748161955/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) chelm, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 404840641,
+   "uri": "https://www.inaturalist.org/observations/404840641",
+   "location": "43.6954334451,-79.3559769197",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": 8,
+   "time_observed_at": "2026-09-30T18:16:25-04:00",
+   "observed_on": "2026-09-30",
+   "place_guess": "East York, ON M4K 3H7, Canada",
+   "taxon": {
+    "id": 54762,
+    "name": "Acer saccharinum"
+   },
+   "photos": [
+    {
+     "id": 743515713,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/743515713/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) asimpson99, some rights reserved (CC BY-NC)"
+    },
+    {
+     "id": 743515787,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/743515787/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) asimpson99, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 404841148,
+   "uri": "https://www.inaturalist.org/observations/404841148",
+   "location": "43.6952738379,-79.3560626418",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": 8,
+   "time_observed_at": "2026-09-30T18:17:58-04:00",
+   "observed_on": "2026-09-30",
+   "place_guess": "O'Connor Dr at Donlands Ave West Side, East York, ON M4J 2T8, Canada",
+   "taxon": {
+    "id": 52543,
+    "name": "Acer saccharum"
+   },
+   "photos": [
+    {
+     "id": 743516776,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/743516776/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) asimpson99, some rights reserved (CC BY-NC)"
+    },
+    {
+     "id": 743516835,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/743516835/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) asimpson99, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 404999673,
+   "uri": "https://www.inaturalist.org/observations/404999673",
+   "location": "43.7981491089,-79.2340698242",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": 4,
+   "time_observed_at": "2026-10-01T11:01:21-04:00",
+   "observed_on": "2026-10-01",
+   "place_guess": "Toronto",
+   "taxon": {
+    "id": 54762,
+    "name": "Acer saccharinum"
+   },
+   "photos": [
+    {
+     "id": 743829852,
+     "url": "https://static.inaturalist.org/photos/743829852/square.jpg",
+     "license_code": null,
+     "attribution": "(c) staceyherdman, all rights reserved"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405003235,
+   "uri": "https://www.inaturalist.org/observations/405003235",
+   "location": "43.7984809875,-79.2325057983",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": 4,
+   "time_observed_at": "2026-10-01T11:16:14-04:00",
+   "observed_on": "2026-10-01",
+   "place_guess": "Toronto",
+   "taxon": {
+    "id": 52543,
+    "name": "Acer saccharum"
+   },
+   "photos": [
+    {
+     "id": 743863521,
+     "url": "https://static.inaturalist.org/photos/743863521/square.jpg",
+     "license_code": null,
+     "attribution": "(c) staceyherdman, all rights reserved"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405006664,
+   "uri": "https://www.inaturalist.org/observations/405006664",
+   "location": "43.7714864646,-79.5163531926",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": 11,
+   "time_observed_at": "2026-10-01T11:34:45-04:00",
+   "observed_on": "2026-10-01",
+   "place_guess": "Black Creek Tr, Toronto, ON, CA",
+   "taxon": {
+    "id": 52543,
+    "name": "Acer saccharum"
+   },
+   "photos": [
+    {
+     "id": 743843088,
+     "url": "https://static.inaturalist.org/photos/743843088/square.jpg",
+     "license_code": null,
+     "attribution": "(c) Vincent Beau, all rights reserved"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405008305,
+   "uri": "https://www.inaturalist.org/observations/405008305",
+   "location": "43.7702239305,-79.5151466411",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": null,
+   "positional_accuracy": 4,
+   "time_observed_at": "2026-10-01T11:42:00-04:00",
+   "observed_on": "2026-10-01",
+   "place_guess": "Black Creek Tr, Toronto, ON, CA",
+   "taxon": {
+    "id": 47727,
+    "name": "Acer"
+   },
+   "photos": [
+    {
+     "id": 743846210,
+     "url": "https://static.inaturalist.org/photos/743846210/square.jpg",
+     "license_code": null,
+     "attribution": "(c) Vincent Beau, all rights reserved"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405014489,
+   "uri": "https://www.inaturalist.org/observations/405014489",
+   "location": "43.7715144912,-79.5163597263",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": 6,
+   "time_observed_at": "2026-10-01T12:11:11-04:00",
+   "observed_on": "2026-10-01",
+   "place_guess": "Black Creek Tr, Toronto, ON, CA",
+   "taxon": {
+    "id": 52543,
+    "name": "Acer saccharum"
+   },
+   "photos": [
+    {
+     "id": 745502862,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/745502862/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) Anna Hoad, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405027962,
+   "uri": "https://www.inaturalist.org/observations/405027962",
+   "location": "43.7669423293,-79.2629582111",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": 35,
+   "time_observed_at": "2026-10-01T13:19:59-04:00",
+   "observed_on": "2026-10-01",
+   "place_guess": "Applefield Dr, Toronto, ON, CA",
+   "taxon": {
+    "id": 47726,
+    "name": "Acer negundo"
+   },
+   "photos": [
+    {
+     "id": 744014699,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744014699/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) nicole_003, some rights reserved (CC BY-NC)"
+    },
+    {
+     "id": 744014678,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744014678/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) nicole_003, some rights reserved (CC BY-NC)"
+    },
+    {
+     "id": 744014695,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744014695/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) nicole_003, some rights reserved (CC BY-NC)"
+    },
+    {
+     "id": 744014698,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744014698/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) nicole_003, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405065276,
+   "uri": "https://www.inaturalist.org/observations/405065276",
+   "location": "43.7136305556,-79.2384972222",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": null,
+   "positional_accuracy": null,
+   "time_observed_at": "2026-10-01T08:44:22-04:00",
+   "observed_on": "2026-10-01",
+   "place_guess": "Brimley Rd at Barkdene Hills, Scarborough, ON M1M 3X4, Canada",
+   "taxon": {
+    "id": 47727,
+    "name": "Acer"
+   },
+   "photos": [
+    {
+     "id": 743958865,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/743958865/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) nanamistater, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405104300,
+   "uri": "https://www.inaturalist.org/observations/405104300",
+   "location": "43.6966105567,-79.3558818092",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": 414,
+   "time_observed_at": "2026-09-30T15:31:27-04:00",
+   "observed_on": "2026-09-30",
+   "place_guess": "Toronto, ON, CA",
+   "taxon": {
+    "id": 47726,
+    "name": "Acer negundo"
+   },
+   "photos": [
+    {
+     "id": 744039773,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744039773/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) rstruthers, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405222056,
+   "uri": "https://www.inaturalist.org/observations/405222056",
+   "location": "43.7669424992,-79.2617764604",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": 3,
+   "time_observed_at": "2026-10-02T09:58:44-04:00",
+   "observed_on": "2026-10-02",
+   "place_guess": "Verlaine Pl, Toronto, ON, CA",
+   "taxon": {
+    "id": 63512,
+    "name": "Acer palmatum"
+   },
+   "photos": [
+    {
+     "id": 744276388,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744276388/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) nicole_003, some rights reserved (CC BY-NC)"
+    },
+    {
+     "id": 744276393,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744276393/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) nicole_003, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405315819,
+   "uri": "https://www.inaturalist.org/observations/405315819",
+   "location": "43.7749416667,-79.3637027778",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": null,
+   "time_observed_at": "2026-10-02T10:40:22-04:00",
+   "observed_on": "2026-10-02",
+   "place_guess": "Leslie St at Marowyne Dr, North York, ON M2J 2A2, Canada",
+   "taxon": {
+    "id": 47726,
+    "name": "Acer negundo"
+   },
+   "photos": [
+    {
+     "id": 744459855,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744459855/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) Justin Chan, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405363729,
+   "uri": "https://www.inaturalist.org/observations/405363729",
+   "location": "43.6621551389,-79.3744430278",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": null,
+   "time_observed_at": "2026-10-02T13:43:20-04:00",
+   "observed_on": "2026-10-02",
+   "place_guess": "Carlton St at Sherbourne St, Toronto, ON M5A 2S5, Canada",
+   "taxon": {
+    "id": 120525,
+    "name": "Acer griseum"
+   },
+   "photos": [
+    {
+     "id": 744563593,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744563593/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) nanjo, some rights reserved (CC BY-NC)"
+    },
+    {
+     "id": 744563622,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744563622/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) nanjo, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405374561,
+   "uri": "https://www.inaturalist.org/observations/405374561",
+   "location": "43.77538,-79.365239445",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": 10,
+   "time_observed_at": "2026-10-02T10:52:00-04:00",
+   "observed_on": "2026-10-02",
+   "place_guess": "Bayview Village, North York, ON, Canada",
+   "taxon": {
+    "id": 47726,
+    "name": "Acer negundo"
+   },
+   "photos": [
+    {
+     "id": 744580523,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744580523/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) Justin Chan, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405374694,
+   "uri": "https://www.inaturalist.org/observations/405374694",
+   "location": "43.77582503,-79.3660905717",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": 10,
+   "time_observed_at": "2026-10-02T11:10:00-04:00",
+   "observed_on": "2026-10-02",
+   "place_guess": "Bayview Village, North York, ON, Canada",
+   "taxon": {
+    "id": 47726,
+    "name": "Acer negundo"
+   },
+   "photos": [
+    {
+     "id": 744581043,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744581043/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) Justin Chan, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405374711,
+   "uri": "https://www.inaturalist.org/observations/405374711",
+   "location": "43.775780395,-79.366175935",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": 10,
+   "time_observed_at": "2026-10-02T11:10:00-04:00",
+   "observed_on": "2026-10-02",
+   "place_guess": "Bayview Village, North York, ON, Canada",
+   "taxon": {
+    "id": 47726,
+    "name": "Acer negundo"
+   },
+   "photos": [
+    {
+     "id": 744581059,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744581059/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) Justin Chan, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405375923,
+   "uri": "https://www.inaturalist.org/observations/405375923",
+   "location": "43.77572769,-79.367004185",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": 10,
+   "time_observed_at": "2026-10-02T11:25:00-04:00",
+   "observed_on": "2026-10-02",
+   "place_guess": "Bayview Village, North York, ON, Canada",
+   "taxon": {
+    "id": 54762,
+    "name": "Acer saccharinum"
+   },
+   "photos": [
+    {
+     "id": 744585771,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744585771/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) Justin Chan, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405377253,
+   "uri": "https://www.inaturalist.org/observations/405377253",
+   "location": "43.7753203867,-79.367840665",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": 10,
+   "time_observed_at": "2026-10-02T11:36:00-04:00",
+   "observed_on": "2026-10-02",
+   "place_guess": "Toronto, Ontario, Canada",
+   "taxon": {
+    "id": 54762,
+    "name": "Acer saccharinum"
+   },
+   "photos": [
+    {
+     "id": 744587167,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744587167/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) Justin Chan, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405377312,
+   "uri": "https://www.inaturalist.org/observations/405377312",
+   "location": "43.7757610817,-79.36874957",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": null,
+   "positional_accuracy": 10,
+   "time_observed_at": "2026-10-02T11:47:00-04:00",
+   "observed_on": "2026-10-02",
+   "place_guess": "Bayview Village, North York, ON, Canada",
+   "taxon": {
+    "id": 47727,
+    "name": "Acer"
+   },
+   "photos": [
+    {
+     "id": 744587587,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744587587/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) Justin Chan, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405377321,
+   "uri": "https://www.inaturalist.org/observations/405377321",
+   "location": "43.7756814967,-79.36915466",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": 10,
+   "time_observed_at": "2026-10-02T11:51:00-04:00",
+   "observed_on": "2026-10-02",
+   "place_guess": "Bayview Village, North York, ON, Canada",
+   "taxon": {
+    "id": 47726,
+    "name": "Acer negundo"
+   },
+   "photos": [
+    {
+     "id": 744587653,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744587653/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) Justin Chan, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405379350,
+   "uri": "https://www.inaturalist.org/observations/405379350",
+   "location": "43.7801239317,-79.3700306183",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": 10,
+   "time_observed_at": "2026-10-02T12:17:00-04:00",
+   "observed_on": "2026-10-02",
+   "place_guess": "Bayview Village, North York, ON, Canada",
+   "taxon": {
+    "id": 47726,
+    "name": "Acer negundo"
+   },
+   "photos": [
+    {
+     "id": 744590905,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744590905/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) Justin Chan, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405379374,
+   "uri": "https://www.inaturalist.org/observations/405379374",
+   "location": "43.7807426667,-79.3700283233",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": 10,
+   "time_observed_at": "2026-10-02T12:24:00-04:00",
+   "observed_on": "2026-10-02",
+   "place_guess": "Bayview Village, North York, ON, Canada",
+   "taxon": {
+    "id": 54762,
+    "name": "Acer saccharinum"
+   },
+   "photos": [
+    {
+     "id": 744591267,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744591267/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) Justin Chan, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405381326,
+   "uri": "https://www.inaturalist.org/observations/405381326",
+   "location": "43.78143731,-79.3700400717",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": 10,
+   "time_observed_at": "2026-10-02T13:17:00-04:00",
+   "observed_on": "2026-10-02",
+   "place_guess": "Bayview Village, North York, ON, Canada",
+   "taxon": {
+    "id": 47726,
+    "name": "Acer negundo"
+   },
+   "photos": [
+    {
+     "id": 744595561,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744595561/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) Justin Chan, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405381343,
+   "uri": "https://www.inaturalist.org/observations/405381343",
+   "location": "43.780125095,-79.3700106117",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": 10,
+   "time_observed_at": "2026-10-02T13:23:00-04:00",
+   "observed_on": "2026-10-02",
+   "place_guess": "Bayview Village, North York, ON, Canada",
+   "taxon": {
+    "id": 47726,
+    "name": "Acer negundo"
+   },
+   "photos": [
+    {
+     "id": 744595601,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744595601/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) Justin Chan, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405381375,
+   "uri": "https://www.inaturalist.org/observations/405381375",
+   "location": "43.7781810783,-79.3706036283",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": null,
+   "positional_accuracy": 10,
+   "time_observed_at": "2026-10-02T13:31:00-04:00",
+   "observed_on": "2026-10-02",
+   "place_guess": "Bayview Village, North York, ON, Canada",
+   "taxon": {
+    "id": 47727,
+    "name": "Acer"
+   },
+   "photos": [
+    {
+     "id": 744595932,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744595932/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) Justin Chan, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405381407,
+   "uri": "https://www.inaturalist.org/observations/405381407",
+   "location": "43.775382305,-79.367574805",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": 10,
+   "time_observed_at": "2026-10-02T13:42:00-04:00",
+   "observed_on": "2026-10-02",
+   "place_guess": "Bayview Village, North York, ON, Canada",
+   "taxon": {
+    "id": 48078,
+    "name": "Acer nigrum"
+   },
+   "photos": [
+    {
+     "id": 744596005,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744596005/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) Justin Chan, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405500748,
+   "uri": "https://www.inaturalist.org/observations/405500748",
+   "location": "43.6755409241,-79.2947006226",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": null,
+   "positional_accuracy": 4,
+   "time_observed_at": "2026-10-03T11:42:12-04:00",
+   "observed_on": "2026-10-03",
+   "place_guess": "Toronto",
+   "taxon": {
+    "id": 47727,
+    "name": "Acer"
+   },
+   "photos": [
+    {
+     "id": 744835061,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744835061/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) Cherie Daly, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405501354,
+   "uri": "https://www.inaturalist.org/observations/405501354",
+   "location": "43.6419456319,-79.4640104712",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": 6,
+   "time_observed_at": "2026-10-03T11:44:28-04:00",
+   "observed_on": "2026-10-03",
+   "place_guess": "High Park Tr, Toronto, ON, CA",
+   "taxon": {
+    "id": 52543,
+    "name": "Acer saccharum"
+   },
+   "photos": [
+    {
+     "id": 744836239,
+     "url": "https://static.inaturalist.org/photos/744836239/square.jpg",
+     "license_code": null,
+     "attribution": "(c) Vincent Beau, all rights reserved"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 405556768,
+   "uri": "https://www.inaturalist.org/observations/405556768",
+   "location": "43.6417986,-79.4640633",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": null,
+   "time_observed_at": "2026-10-03T11:44:34-04:00",
+   "observed_on": "2026-10-03",
+   "place_guess": "Toronto, ON M6S 2X3, Canada",
+   "taxon": {
+    "id": 52543,
+    "name": "Acer saccharum"
+   },
+   "photos": [
+    {
+     "id": 744945734,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744945734/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) vmcmain, some rights reserved (CC BY-NC)"
+    },
+    {
+     "id": 744945809,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744945809/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) vmcmain, some rights reserved (CC BY-NC)"
+    },
+    {
+     "id": 744945836,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744945836/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) vmcmain, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  }
+ ]
+}

@@ -15,6 +15,8 @@ search_queries:                 # {place} = spot name in that language
   ja: '"{place}" 紅葉 見頃'
   ko: '"{place}" 단풍'
   zh-TW: '"{place}" 楓葉'
+  fr: '"{place}" couleurs automne'
+  de: '"{place}" Herbstlaub'
 inat_annotation:
   term: Leaves
   in_season: [Colored Leaves]

@@ -91,18 +91,54 @@ def haversine_km(lat1: float, lng1: float, lat2: float, lng2: float) -> float:
 _SPLIT = re.compile(r"\s*[,，、]\s*")
 _DIGIT = re.compile(r"\d")
 _JUNK = {"unnamed road", "unknown", ""}
+# Region codes as iNaturalist writes them: "CA", "CA-ON", "JP-26".
+_CODE = re.compile(r"^[A-Z]{2,3}(-[A-Z0-9]{1,3})?$")
+# Extra cleanup for English-style street addresses (other scripts rely on the digit rule).
+_STREET = re.compile(
+    r"\b(st|rd|ave|dr|blvd|ln|hwy|cres|ct|pkwy|street|road|avenue|drive|lane|boulevard|"
+    r"highway|crescent|court|parkway)\.?( [nsew])?$|\b(at|after|before|near|off)\b",
+    re.IGNORECASE,
+)
+
+
+def _clean_part(part: str) -> str:
+    """Remove addresses and postcodes from one part of a place_guess.
+
+    A part that starts with a number is a street address ("89 Hongeunjungang-ro") and is
+    dropped. Otherwise digit tokens are postcodes ("North Sydney NSW 2060") and are removed
+    along with the state code before them. A single token with a digit (CJK addresses are
+    written without spaces) is dropped.
+    """
+    if not _DIGIT.search(part):
+        return part
+    words = part.split()
+    if _DIGIT.search(words[0]):
+        return ""
+    words = [w for w in words if not _DIGIT.search(w)]
+    while words and _CODE.match(words[-1]):
+        words.pop()
+    return " ".join(words)
 
 
 def place_parts(place_guess: str | None) -> list[str]:
-    """Split a place_guess into usable parts, dropping street addresses and postcodes.
+    """Split a place_guess into usable place names, most specific first.
 
-    Any part containing a digit is treated as an address or postcode. That loses the
-    occasional "Route 66", but keeps people's house numbers out of the UI.
+    Removes house numbers, postcodes, region codes, street names and the trailing country,
+    so people's addresses never reach the UI. Works on any script: CJK enumeration commas
+    split like ASCII commas, and the digit rule needs no language knowledge.
     """
     if not place_guess:
         return []
-    parts = [p.strip() for p in _SPLIT.split(place_guess)]
-    return [p for p in parts if p.lower() not in _JUNK and not _DIGIT.search(p)]
+    raw = [p.strip() for p in _SPLIT.split(place_guess)]
+    if len(raw) >= 2:
+        raw = raw[:-1]  # the last part is the country
+    out = []
+    for p in raw:
+        p = _clean_part(p).strip()
+        if p.lower() in _JUNK or _CODE.match(p) or _STREET.search(p):
+            continue
+        out.append(p)
+    return out
 
 
 def cell_name(place_guesses: list[str | None]) -> str | None:
@@ -110,8 +146,7 @@ def cell_name(place_guesses: list[str | None]) -> str | None:
     names = Counter()
     for pg in place_guesses:
         parts = place_parts(pg)
-        # A single part that is only a country/region code ("CA", "JP") is not a name.
-        if parts and not (len(parts) == 1 and len(parts[0]) <= 3):
+        if parts:
             names[parts[0]] += 1
     return names.most_common(1)[0][0] if names else None
 

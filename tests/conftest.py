@@ -41,3 +41,52 @@ def make_report():
         return Report(**defaults)
 
     return make
+
+
+FIXTURES = ROOT / "tests" / "fixtures"
+INAT_AREAS = {
+    "maple": ["inat_acer_toronto", "inat_acer_kyoto", "inat_acer_seoul"],
+    "sakura": ["inat_sakura_sydney"],
+}
+
+
+def load_fixture(name: str):
+    import json
+
+    return json.loads((FIXTURES / name).read_text(encoding="utf-8"))
+
+
+def fake_inat_handler(request):
+    """httpx MockTransport handler that serves recorded iNaturalist fixtures."""
+    import httpx
+
+    taxa = load_fixture("taxa.json")
+    sakura_ids = {
+        t["id"]
+        for name in ("Prunus serrulata", "Prunus × yedoensis", "Prunus × subhirtella")
+        for t in taxa.get(name, {}).get("results", [])
+    }
+    path, q = request.url.path, request.url.params
+    if request.url.host == "inaturalist-open-data.s3.amazonaws.com":
+        return httpx.Response(200, content=b"\xff\xd8fake-jpeg")
+    if path == "/v1/controlled_terms":
+        return httpx.Response(200, json=load_fixture("controlled_terms.json"))
+    if path == "/v1/taxa":
+        return httpx.Response(200, json=taxa.get(q["q"], {"results": []}))
+    if path == "/v1/observations":
+        if int(q.get("id_above", 0)) > 0:
+            return httpx.Response(200, json={"results": []})
+        ids = {int(x) for x in q["taxon_id"].split(",")}
+        target = "sakura" if ids & sakura_ids else "maple"
+        results = [o for n in INAT_AREAS[target] for o in load_fixture(f"{n}.json")["results"]]
+        return httpx.Response(200, json={"results": results})
+    return httpx.Response(404, json={"error": f"unexpected {request.url}"})
+
+
+@pytest.fixture(autouse=True)
+def no_rate_limit(monkeypatch):
+    """Tests use recorded fixtures, so there is no API to be polite to."""
+    from peakseason.http import RateLimiter
+    from peakseason.ingest import inaturalist
+
+    monkeypatch.setattr(inaturalist, "RateLimiter", lambda interval: RateLimiter(0))

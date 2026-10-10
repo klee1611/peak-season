@@ -1,0 +1,9 @@
+{
+ "_note": "Hand-written in the documented SerpApi Google response shape (no key was available to record one). Only fields Peak Season reads.",
+ "search_metadata": {"status": "Success"},
+ "organic_results": [
+  {"position": 1, "title": "嵐山の紅葉 見頃情報 2026", "link": "https://example.jp/arashiyama-koyo", "snippet": "嵐山の紅葉は現在見頃を迎えています。渡月橋周辺が真っ赤に色づきました。", "date": "2 days ago"},
+  {"position": 2, "title": "京都 紅葉 色づき始め", "link": "https://example.jp/kyoto-irozuki", "snippet": "嵐山では色づき始め。見頃は来週以降の予想です。"},
+  {"position": 3, "title": "no link result", "snippet": "ignored"}
+ ]
+}

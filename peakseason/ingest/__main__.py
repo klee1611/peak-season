@@ -16,7 +16,7 @@ import httpx
 
 from peakseason import aggregate, export
 from peakseason.config import ROOT, Settings, get_settings
-from peakseason.ingest import budget
+from peakseason.ingest import budget, serpapi
 from peakseason.ingest.inaturalist import INatClient, normalize
 from peakseason.model.classify import Classifier
 from peakseason.model.client import ChatModel, OpenAICompatModel
@@ -123,6 +123,24 @@ async def classify_budgeted(
     log.info("classification: %s", stats["classification"])
 
 
+async def extract_texts(
+    classifier: Classifier,
+    targets: list[Target],
+    texts: list[Report],
+    deadline: float,
+    stats: dict,
+) -> None:
+    tmap = {t.id: t for t in targets}
+    for done, r in enumerate(texts):
+        if time.monotonic() > deadline:
+            log.warning("deadline reached; %d text reports left for next run", len(texts) - done)
+            break
+        c = await classifier.extract_text(tmap[r.target_id], r.item_id, r.place_guess, r.text)
+        apply(r, c)
+    stats.setdefault("serpapi", {})["text_reports"] = len(texts)
+    stats["serpapi"]["text_reports_with_stage"] = sum(r.stage is not None for r in texts)
+
+
 async def run(
     settings: Settings,
     target_filter: str | None = None,
@@ -156,6 +174,13 @@ async def run(
         classifier = Classifier(model, store, http, ROOT)
         famous = {(s.cell, tid) for s in spots for tid in s.known_for}
         await classify_budgeted(classifier, targets, reports, famous, settings, stats, now)
+
+        # SerpApi runs after photo classification so "under-reported" counts Gemma's results.
+        planned = serpapi.plan_queries(targets, spots, reports, now, settings.window_days)
+        texts = await serpapi.SerpApiClient(http, store, settings).fetch(planned, stats)
+        deadline = started + settings.classify_deadline_min * 60
+        await extract_texts(classifier, targets, texts, deadline, stats)
+        reports += texts
 
     results = {
         t.id: aggregate.aggregate(t, reports, now, settings.window_days, spots) for t in targets

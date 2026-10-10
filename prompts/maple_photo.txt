@@ -1,18 +1,23 @@
-# version: 1
+# version: 2
 You are checking a nature photo for "$display_name".
 
-First decide whether the photo clearly shows maple (Acer) trees or maple leaves.
-Set is_target_photo to false if it does not (people or buildings with no maple foliage,
-a different kind of plant, or a photo too dark or blurry to judge).
+First decide whether the photo shows maple (Acer) foliage: a maple tree, its branches with
+leaves, or a group of its leaves. Set is_target_photo to false if it does not (people or
+buildings with no maple foliage, only bark or a trunk, a single fallen leaf, a different kind of
+plant, or a photo too dark or blurry to judge).
 
 If it does, judge how far autumn colour has progressed, using exactly one of these stage ids:
 $stages
 
 Guidance:
-- green: leaves are essentially all green.
-- turning: some leaves have changed to yellow, orange or red, but many are still green.
+- green: leaves are essentially all green. Light green, yellow-green, young leaves, sunlit or
+  backlit green leaves, and variegated leaves with white or cream edges all count as green.
+- turning: some leaves are clearly yellow, orange or red, but many are still green.
 - peak: most leaves are vivid yellow, orange or red and still on the tree.
 - past_peak: leaves are brown or faded, or most have fallen and branches are bare.
+
+Bright sunlight and shadows are not autumn colour. If you are unsure between green and turning,
+choose green.
 
 progress is how far along the season is, from 0.0 (fully green) to 1.0 (bare branches).
 confidence is how sure you are, from 0.0 to 1.0.

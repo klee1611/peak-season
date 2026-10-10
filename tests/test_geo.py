@@ -39,18 +39,27 @@ def test_haversine():
     assert geo.haversine_km(1, 1, 1, 1) == 0
 
 
-def test_place_parts_drops_addresses_unicode_safe():
-    assert geo.place_parts("123 Queen St W, Toronto, ON M5H 2M9, Canada") == [
-        "Toronto",
-        "Canada",
-    ]
-    assert geo.place_parts("嵐山、京都市、日本") == ["嵐山", "京都市", "日本"]
-    assert geo.place_parts("여의도동, 서울특별시, 대한민국") == [
-        "여의도동",
-        "서울특별시",
-        "대한민국",
-    ]
-    assert geo.place_parts(None) == []
+@pytest.mark.parametrize(
+    "guess,expected",
+    [
+        ("123 Queen St W, Toronto, ON M5H 2M9, Canada", ["Toronto"]),
+        ("Toronto, CA-ON, CA", ["Toronto"]),
+        ("Toronto", ["Toronto"]),
+        ("East York, ON M4K 3H7, Canada", ["East York"]),
+        ("High St after Clark Rd, North Sydney NSW 2060, Australia", ["North Sydney"]),
+        ("Wahroonga NSW 2076, Australia", ["Wahroonga"]),
+        ("High Park, Toronto, ON, CA", ["High Park", "Toronto"]),
+        ("嵐山、京都市、日本", ["嵐山", "京都市"]),
+        ("南禅寺北ノ坊町7-1, 左京区, 京都市, 日本", ["左京区", "京都市"]),
+        ("7-1 Nanzenji Kitanobōchō, Sakyo Ward, Kyoto, 606-8446, יפן", ["Sakyo Ward", "Kyoto"]),
+        ("여의도동, 서울특별시, 대한민국", ["여의도동", "서울특별시"]),
+        ("89 Hongeunjungang-ro 3-gil, Seodaemun-gu, Seoul, South Korea", ["Seodaemun-gu", "Seoul"]),
+        ("Unnamed Road, Kyoto, JP", ["Kyoto"]),
+        (None, []),
+    ],
+)  # fmt: skip
+def test_place_parts_drops_addresses_unicode_safe(guess, expected):
+    assert geo.place_parts(guess) == expected
 
 
 def test_cell_name_and_city():
@@ -63,7 +72,7 @@ def test_cell_name_and_city():
     ]
     assert geo.cell_name(guesses) == "High Park"
     assert geo.cell_city(guesses) == "Toronto"
-    assert geo.cell_name(["CA", None]) is None
+    assert geo.cell_name(["CA-ON, CA", None]) is None
 
 
 def test_median():

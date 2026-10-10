@@ -1,0 +1,137 @@
+name: ingest
+
+# Fetch recent reports, classify photos with Gemma on the runner's CPU, export site/data/,
+# and commit it. Cloudflare Pages redeploys from the new commit. Runs at $0 on a public repo.
+on:
+  schedule:
+    - cron: "17 4,16 * * *" # every 12 hours, off the hour
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Only this target id (blank = all)"
+        required: false
+      bbox:
+        description: 'Test run: "minlng,minlat,maxlng,maxlat" (blank = whole world)'
+        required: false
+      max_photos:
+        description: "Override MAX_PHOTOS_PER_RUN"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ingest
+  cancel-in-progress: false
+
+env:
+  MODEL_NAME: ${{ vars.MODEL_NAME || 'gemma4:e2b-it-qat' }}
+  MODEL_BASE_URL: ${{ secrets.MODEL_BASE_URL || 'http://localhost:11434/v1' }}
+  MODEL_API_KEY: ${{ secrets.MODEL_API_KEY || 'ollama' }}
+  OLLAMA_VERSION: "0.40.2"
+  OLLAMA_MODELS: /home/runner/.ollama/models
+  SQLITE_PATH: .cache/peakseason.db
+  INAT_USER_AGENT: "PeakSeason/0.1 (+https://github.com/${{ github.repository }}; open-source hackathon)"
+  MAX_PHOTOS_PER_RUN: ${{ vars.MAX_PHOTOS_PER_RUN || '80' }}
+  CLASSIFY_DEADLINE_MIN: ${{ vars.CLASSIFY_DEADLINE_MIN || '90' }}
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+      - run: uv sync --frozen
+
+      # Self-hosted Gemma on the runner (skipped when MODEL_BASE_URL points to a hosted endpoint).
+      - name: Restore Gemma model cache
+        if: startsWith(env.MODEL_BASE_URL, 'http://localhost')
+        id: model-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ env.OLLAMA_MODELS }}
+          key: ollama-${{ env.MODEL_NAME }}
+
+      - name: Install and start Ollama
+        if: startsWith(env.MODEL_BASE_URL, 'http://localhost')
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+          # The installer starts a system service as another user; run our own instead so the
+          # model directory is the one we cache.
+          sudo systemctl stop ollama || true
+          mkdir -p "$OLLAMA_MODELS"
+          nohup ollama serve > ollama.log 2>&1 &
+          for i in $(seq 1 60); do
+            curl -sf http://localhost:11434/api/tags > /dev/null && break
+            sleep 1
+          done
+          curl -sf http://localhost:11434/api/tags > /dev/null || { cat ollama.log; exit 1; }
+
+      - name: Pull model (cache miss only)
+        if: startsWith(env.MODEL_BASE_URL, 'http://localhost') && steps.model-cache.outputs.cache-hit != 'true'
+        run: ollama pull "$MODEL_NAME"
+
+      - name: Save Gemma model cache
+        if: startsWith(env.MODEL_BASE_URL, 'http://localhost') && steps.model-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ env.OLLAMA_MODELS }}
+          key: ollama-${{ env.MODEL_NAME }}
+
+      - name: Warm up model (load time is not counted as photo latency)
+        if: startsWith(env.MODEL_BASE_URL, 'http://localhost')
+        run: |
+          time curl -sf http://localhost:11434/api/generate \
+            -d "{\"model\": \"$MODEL_NAME\", \"prompt\": \"Reply with OK.\", \"stream\": false, \"keep_alive\": \"3h\"}" > /dev/null
+
+      # The SQLite cache only saves re-classification work; losing it is harmless.
+      - name: Restore SQLite cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .cache
+          key: db-${{ github.run_id }}
+          restore-keys: db-
+
+      - name: Run ingest
+        env:
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+          TARGET: ${{ inputs.target }}
+          BBOX: ${{ inputs.bbox }}
+          MAX_PHOTOS: ${{ inputs.max_photos }}
+        run: |
+          args=()
+          [ -n "$TARGET" ] && args+=(--target "$TARGET")
+          [ -n "$BBOX" ] && args+=(--bbox "$BBOX")
+          [ -n "$MAX_PHOTOS" ] && args+=(--max-photos "$MAX_PHOTOS")
+          uv run python -m peakseason.ingest "${args[@]}"
+
+      - name: Run summary
+        if: always()
+        run: |
+          if [ -f site/data/run_stats.json ]; then
+            { echo '```json'; cat site/data/run_stats.json; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Commit data
+        run: |
+          git add site/data
+          if git diff --cached --quiet; then
+            echo "No data changes; nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "data: ingest run ${{ github.run_id }}"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
+      - name: Save SQLite cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .cache
+          key: db-${{ github.run_id }}

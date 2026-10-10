@@ -19,9 +19,10 @@ const I18N = {
     units_km: "km",
     units_mi: "mi",
     load_failed: "Couldn't load the data. Please try again later.",
-    nothing_nearby: "Nothing in season within {radius} near {place} right now.",
+    nothing_nearby: "Nothing in season within {radius} of {place} right now.",
     nearest_region: "The nearest region with something at its peak: {plant}, about {distance} away.",
-    nearest_none: "Nothing is at its peak anywhere we track right now.",
+    nearest_in_season: "The nearest region where it's in season: {plant}, about {distance} away.",
+    nearest_none: "Nothing is in season anywhere we track right now.",
     your_location: "you",
     go_now_line: "{stage} {distance} away at {name}. {reports}. {advice}",
     best_line: "Nothing at its best nearby yet. Closest: {name}, {distance} away ({stage}).",
@@ -366,18 +367,23 @@ function headlineText(target, cells) {
 function nothingNearbyText() {
   const base = t("nothing_nearby", { radius: fmtDistance(state.radiusKm), place: state.place.label });
   const names = new Map(visibleTargets().map((tg) => [tg.id, tg.display_name]));
-  let best = null;
-  for (const [hash, info] of Object.entries(state.index.shards)) {
-    const ids = (info.go_now || []).filter((id) => names.has(id));
-    if (ids.length === 0) continue;
-    const [lat, lng] = geohashCentre(hash);
-    const d = haversineKm(state.place.lat, state.place.lng, lat, lng);
-    if (!best || d < best.d) best = { d, plant: names.get(ids[0]) };
-  }
+  const nearest = (field) => {
+    let best = null;
+    for (const [hash, info] of Object.entries(state.index.shards)) {
+      const ids = (info[field] || []).filter((id) => names.has(id));
+      if (ids.length === 0) continue;
+      const [lat, lng] = geohashCentre(hash);
+      const d = haversineKm(state.place.lat, state.place.lng, lat, lng);
+      if (!best || d < best.d) best = { d, plant: names.get(ids[0]) };
+    }
+    return best;
+  };
   // Region centres are approximate (a region is ~1,250 km wide), so round generously.
-  const tail = best
-    ? t("nearest_region", { plant: best.plant, distance: fmtDistance(Math.round(best.d / 100) * 100) })
-    : t("nearest_none");
+  const say = (key, best) =>
+    t(key, { plant: best.plant, distance: fmtDistance(Math.max(100, Math.round(best.d / 100) * 100)) });
+  const peak = nearest("go_now");
+  const season = peak ? null : nearest("in_season");
+  const tail = peak ? say("nearest_region", peak) : season ? say("nearest_in_season", season) : t("nearest_none");
   return `${base} ${tail}`;
 }
 

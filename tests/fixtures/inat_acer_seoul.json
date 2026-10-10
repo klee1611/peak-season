@@ -1,0 +1,87 @@
+{
+ "total_results": 3,
+ "per_page": 200,
+ "results": [
+  {
+   "id": 406719369,
+   "uri": "https://www.inaturalist.org/observations/406719369",
+   "location": "37.6008062108,126.9415172562",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": 4,
+   "time_observed_at": "2026-10-08T14:16:17+09:00",
+   "observed_on": "2026-10-08",
+   "place_guess": "Eun-pyeong, KR-SO, KR",
+   "taxon": {
+    "id": 337792,
+    "name": "Acer buergerianum"
+   },
+   "photos": [
+    {
+     "id": 747302476,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/747302476/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) nmi_fishguy, some rights reserved (CC BY-NC)"
+    },
+    {
+     "id": 747302511,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/747302511/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) nmi_fishguy, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 406719501,
+   "uri": "https://www.inaturalist.org/observations/406719501",
+   "location": "37.5997849,126.9485653",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": 246,
+   "time_observed_at": "2026-10-08T14:18:29+09:00",
+   "observed_on": "2026-10-08",
+   "place_guess": "South Korea, Seoul, 포방시장",
+   "taxon": {
+    "id": 63512,
+    "name": "Acer palmatum"
+   },
+   "photos": [
+    {
+     "id": 747302612,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/747302612/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) nmi_fishguy, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  },
+  {
+   "id": 406719536,
+   "uri": "https://www.inaturalist.org/observations/406719536",
+   "location": "37.60043416,126.94181739",
+   "obscured": false,
+   "geoprivacy": null,
+   "taxon_geoprivacy": "open",
+   "positional_accuracy": 4,
+   "time_observed_at": "2026-10-08T14:19:08+09:00",
+   "observed_on": "2026-10-08",
+   "place_guess": "89 Hongeunjungang-ro 3-gil, Seodaemun-gu, Seoul, South Korea",
+   "taxon": {
+    "id": 337792,
+    "name": "Acer buergerianum"
+   },
+   "photos": [
+    {
+     "id": 747302730,
+     "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/747302730/square.jpg",
+     "license_code": "cc-by-nc",
+     "attribution": "(c) nmi_fishguy, some rights reserved (CC BY-NC)"
+    }
+   ],
+   "annotations": []
+  }
+ ]
+}

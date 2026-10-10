@@ -21,6 +21,8 @@ search_queries:
   ja: '"{place}" 桜 開花'
   ko: '"{place}" 벚꽃 개화'
   zh-TW: '"{place}" 櫻花 花況'
+  fr: '"{place}" cerisiers en fleurs'
+  de: '"{place}" Kirschblüte'
 inat_annotation:
   term: Flowers and Fruits
   in_season: [Flowers]

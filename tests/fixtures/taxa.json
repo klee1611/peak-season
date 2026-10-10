@@ -1,0 +1,105 @@
+{
+ "Acer": {
+  "total_results": 1365,
+  "page": 1,
+  "per_page": 30,
+  "results": [
+   {
+    "id": 58321,
+    "name": "Sapindaceae",
+    "rank": "family"
+   },
+   {
+    "id": 47727,
+    "name": "Acer",
+    "rank": "genus"
+   },
+   {
+    "id": 47906,
+    "name": "Asclepias",
+    "rank": "genus"
+   },
+   {
+    "id": 1466321,
+    "name": "Rubra",
+    "rank": "section"
+   },
+   {
+    "id": 1419769,
+    "name": "Acer",
+    "rank": "section"
+   }
+  ]
+ },
+ "Prunus serrulata": {
+  "total_results": 5,
+  "page": 1,
+  "per_page": 30,
+  "results": [
+   {
+    "id": 125742,
+    "name": "Prunus serrulata",
+    "rank": "species"
+   },
+   {
+    "id": 547458,
+    "name": "Prunus jamasakura",
+    "rank": "species"
+   },
+   {
+    "id": 342596,
+    "name": "Prunus leveilleana",
+    "rank": "species"
+   },
+   {
+    "id": 125739,
+    "name": "Prunus serrulata antiqua",
+    "rank": "variety"
+   },
+   {
+    "id": 1706779,
+    "name": "Prunus serrulata pubescens",
+    "rank": "variety"
+   }
+  ]
+ },
+ "Prunus × yedoensis": {
+  "total_results": 1,
+  "page": 1,
+  "per_page": 30,
+  "results": [
+   {
+    "id": 47352,
+    "name": "Prunus × yedoensis",
+    "rank": "hybrid"
+   }
+  ]
+ },
+ "Prunus × subhirtella": {
+  "total_results": 4,
+  "page": 1,
+  "per_page": 30,
+  "results": [
+   {
+    "id": 1004926,
+    "name": "Prunus × subhirtella",
+    "rank": "hybrid"
+   },
+   {
+    "id": 904630,
+    "name": "Prunus spachiana",
+    "rank": "species"
+   },
+   {
+    "id": 1227861,
+    "name": "Prunus × subhirtella tamaclivorum",
+    "rank": "form"
+   },
+   {
+    "id": 1675002,
+    "name": "Prunus × subhirtella fhisauchiana",
+    "rank": "form"
+   }
+  ]
+ }
+}

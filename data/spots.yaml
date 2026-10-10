@@ -1,0 +1,51 @@
+# Famous viewing spots: used for cell naming, classification priority, and SerpApi queries.
+# Coordinates looked up in OpenStreetMap Nominatim on 2026-10-09 (not recalled from memory).
+# Entries marked "TODO verify" resolved to an area centroid or nearby feature; the developer
+# should check the point is where visitors actually go.
+# lang is BCP-47 and picks the target's search template; country is ISO 3166-1 alpha-2.
+
+# Canada
+- { name: High Park, lat: 43.6463, lng: -79.4638, country: CA, lang: en, known_for: [maple, sakura] }
+- { name: Algonquin Park Visitor Centre, lat: 45.5836, lng: -78.3596, country: CA, lang: en, known_for: [maple] }
+- { name: Mount Royal Park, local_name: parc du Mont-Royal, lat: 45.5054, lng: -73.5886, country: CA, lang: fr, known_for: [maple] }
+- { name: Gatineau Park, local_name: parc de la Gatineau, lat: 45.5058, lng: -75.8120, country: CA, lang: fr, known_for: [maple] }  # visitor centre in Chelsea
+- { name: Stanley Park, lat: 49.3021, lng: -123.1413, country: CA, lang: en, known_for: [maple, sakura] }
+
+# United States
+- { name: Central Park, lat: 40.7828, lng: -73.9654, country: US, lang: en, known_for: [maple, sakura] }
+- { name: Tidal Basin, lat: 38.8836, lng: -77.0379, country: US, lang: en, known_for: [sakura] }
+- { name: Brooklyn Botanic Garden, lat: 40.6677, lng: -73.9636, country: US, lang: en, known_for: [sakura, maple] }
+- { name: Arnold Arboretum, lat: 42.2993, lng: -71.1226, country: US, lang: en, known_for: [maple, sakura] }
+
+# Europe
+- { name: Kew Gardens, lat: 51.4783, lng: -0.2969, country: GB, lang: en, known_for: [maple, sakura] }
+- { name: Westonbirt Arboretum, lat: 51.6058, lng: -2.2237, country: GB, lang: en, known_for: [maple] }
+- { name: Heerstraße (Bonn), local_name: Heerstraße Bonn, lat: 50.7361, lng: 7.0879, country: DE, lang: de, known_for: [sakura] }
+
+# Japan
+- { name: Ueno Park, local_name: 上野恩賜公園, lat: 35.7153, lng: 139.7738, country: JP, lang: ja, known_for: [sakura, maple] }
+- { name: Shinjuku Gyoen, local_name: 新宿御苑, lat: 35.6851, lng: 139.7095, country: JP, lang: ja, known_for: [sakura, maple] }
+- { name: Arashiyama, local_name: 嵐山, lat: 35.0090, lng: 135.6745, country: JP, lang: ja, known_for: [maple, sakura] }
+- { name: Tōfuku-ji, local_name: 東福寺, lat: 34.9772, lng: 135.7746, country: JP, lang: ja, known_for: [maple] }
+- { name: Philosopher's Path, local_name: 哲学の道, lat: 35.0172, lng: 135.7961, country: JP, lang: ja, known_for: [sakura, maple] }
+- { name: Yoshinoyama, local_name: 吉野山, lat: 34.3689, lng: 135.8601, country: JP, lang: ja, known_for: [sakura] }
+- { name: Hirosaki Park, local_name: 弘前公園, lat: 40.6080, lng: 140.4637, country: JP, lang: ja, known_for: [sakura, maple] }
+- { name: Mount Takao, local_name: 高尾山, lat: 35.6252, lng: 139.2437, country: JP, lang: ja, known_for: [maple] }  # summit
+- { name: Lake Chūzenji (Nikkō), local_name: 中禅寺湖, lat: 36.7368, lng: 139.4769, country: JP, lang: ja, known_for: [maple] }  # TODO verify: lake centroid
+
+# South Korea
+- { name: Yeouido, local_name: 여의도, lat: 37.5257, lng: 126.9361, country: KR, lang: ko, known_for: [sakura] }  # Yeouido Hangang Park
+- { name: Seoraksan, local_name: 설악산, lat: 38.1606, lng: 128.4959, country: KR, lang: ko, known_for: [maple] }  # TODO verify: Seorak-dong, near the Sogongwon entrance
+- { name: Naejangsan, local_name: 내장산, lat: 35.4897, lng: 126.9020, country: KR, lang: ko, known_for: [maple] }  # Naejangsa temple
+- { name: Gyeonghwa Station (Jinhae), local_name: 경화역, lat: 35.1589, lng: 128.6864, country: KR, lang: ko, known_for: [sakura] }
+
+# Taiwan
+- { name: Yangmingshan, local_name: 陽明山, lat: 25.1590, lng: 121.5390, country: TW, lang: zh-TW, known_for: [sakura] }  # Flower Clock
+- { name: Alishan, local_name: 阿里山, lat: 23.5325, lng: 120.8051, country: TW, lang: zh-TW, known_for: [sakura] }  # TODO verify: recreation area centroid
+- { name: Wuling Farm, local_name: 武陵農場, lat: 24.3537, lng: 121.3103, country: TW, lang: zh-TW, known_for: [sakura] }
+- { name: Fushoushan Farm, local_name: 福壽山農場, lat: 24.2447, lng: 121.2453, country: TW, lang: zh-TW, known_for: [maple] }
+
+# Australia
+- { name: Auburn Botanic Gardens, lat: -33.8582, lng: 151.0173, country: AU, lang: en, known_for: [sakura] }
+- { name: Mount Wilson, lat: -33.5150, lng: 150.3678, country: AU, lang: en, known_for: [maple] }  # TODO verify: village centroid
+- { name: Mount Macedon, lat: -37.3862, lng: 144.5759, country: AU, lang: en, known_for: [maple] }  # Memorial Cross
