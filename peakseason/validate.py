@@ -100,7 +100,11 @@ async def validate(target_id: str, per_group: int, until: str | None = None) -> 
         rows = []
         for group, obs in pairs:
             r = normalize(obs, target, terms)
-            c = await clf.classify_photo(target, r.photo_url)
+            try:
+                c = await clf.classify_photo(target, r.photo_url)
+            except httpx.HTTPError as exc:
+                log.warning("skipping %s: could not fetch photo (%s)", r.link, exc)
+                continue
             # One observation can carry several values ("Green Leaves" and "Colored Leaves" on a
             # half-turned tree); a stage that fits any of them agrees.
             groups = observed_groups(target, r.annotations) or {group}

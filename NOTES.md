@@ -59,3 +59,19 @@ and accepts a stage that fits any of its annotation values.
 **Run 2, prompt v2: 21/26 = 81%, PASS.** 5 photos had both values (any stage agrees); without
 them 16/21 = 76%. Caveat: v2 was written after looking at run-1 misses from overlapping photos,
 so a held-out run on older photos (`--until 2025-11-30`) follows.
+
+**Run 3, prompt v2, held out (`--until 2025-11-30`): 21/26 = 81%, PASS.** Photos observed
+2006–2025 (UK, US, Finland and more); only one (406960446) overlaps run 2, because iNaturalist
+sorts by upload date. No photo carried both values. Green Leaves 9/13, Colored Leaves 12/13,
+0 rejected. Remaining misses: green leaves called turning/peak (4), coloured called green (1).
+
+## Prompt validation (sakura)
+
+**Run 1, prompt v1 (`--until 2026-05-31`): 24/26 = 92%, PASS.** Caveat, stated plainly: all 13
+"Flower Buds" observations also carried "Flowers", so they accept any stage, and the test never
+checked buds against bloom. What it does show: 12/13 blooming trees were judged as blooming
+(first or full bloom), and 2/26 photos were wrongly rejected. A buds-only sample (early spring)
+is the next check. First attempt crashed on a transient DNS error; `validate.py` now skips an
+unfetchable photo instead of aborting.
+
+**Decision (developer, 2026-10-10):** set `validated: true` for both maple and sakura.

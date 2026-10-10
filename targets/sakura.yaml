@@ -29,4 +29,4 @@ inat_annotation:
   validation_groups:
     Flower Buds: [buds]
     Flowers: [first_bloom, full_bloom, falling_petals]
-validated: false
+validated: true  # 2026-10-10: passed peakseason.validate, see NOTES.md
