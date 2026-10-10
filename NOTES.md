@@ -25,3 +25,37 @@ Chose `gemma4:e2b-it-qat` (Gemma 4, vision, 4.3 GB download) as the default `MOD
 - GitHub runner CPU latency is the big unknown (laptop numbers above use Apple GPU via Metal).
 - Cell names: generic "Toronto" for several cells; street names like "Glen Manor Dr" pass the
   address filter. Improve after famous spots exist (`data/spots.yaml` not written yet).
+
+## Fri Oct 9, late evening: first run on GitHub Actions
+
+Repo public at https://github.com/klee1611/peak-season. Test run via `workflow_dispatch`
+(`target=maple`, Toronto bbox, `max_photos=10`), run 38016516934:
+- Ollama install ~15 s; model pull on cache miss ~40 s (then cached); warm-up 4.6 s.
+- **CPU latency on the free runner: median 59.3 s, max 76.3 s per photo** (vs 17 s on the
+  laptop's Apple GPU). So 80 photos per run fit in the 90-minute classification deadline,
+  about 160 photos a day worldwide at two runs per day.
+- 48 observations fetched; 17 unclassified photos within the 7-day window; 10 classified;
+  5 cells exported. Whole job 10 minutes. The bot commit worked (`data: ingest run ...`).
+
+**Bug found before it bit:** a run limited to one target or a bbox rewrote the shards with only
+its own results, which would have deleted every other target and region from the live site.
+Filtered runs now keep cells outside their scope; a fresh result for the same cell wins.
+
+## Prompt validation (maple)
+
+Method: `python -m peakseason.validate --target maple`, 13 research-grade, CC-licensed
+observations per annotation value, coarse-group agreement (Green Leaves ↔ green; Colored
+Leaves ↔ turning/peak/past_peak). A rejected photo counts as a miss.
+
+**Run 1, prompt v1: 16/26 = 62%, FAIL.** Colored Leaves 12/13, Green Leaves 4/13. Gemma called
+green photos "turning": sunlit seedlings, a backlit green canopy, variegated leaves with cream
+edges. Also found a flaw in the test: one observation can carry *both* Green and Colored Leaves
+(a half-turned tree), and it was sampled into both groups.
+
+**Fixes:** prompt v2 says sunlit/backlit, yellow-green, young and variegated leaves are green, and
+"if unsure between green and turning, choose green". `validate.py` samples each observation once
+and accepts a stage that fits any of its annotation values.
+
+**Run 2, prompt v2: 21/26 = 81%, PASS.** 5 photos had both values (any stage agrees); without
+them 16/21 = 76%. Caveat: v2 was written after looking at run-1 misses from overlapping photos,
+so a held-out run on older photos (`--until 2025-11-30`) follows.

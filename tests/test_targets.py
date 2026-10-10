@@ -56,3 +56,12 @@ def test_missing_prompt_file_rejected(tmp_path):
     p.write_text(yaml.safe_dump(data), encoding="utf-8")
     with pytest.raises(ValueError, match="prompt file not found"):
         load_target(p, root=ROOT)
+
+
+def test_validate_groups_union(targets):
+    from peakseason.validate import observed_groups
+
+    maple = targets["maple"]
+    labels = ["Leaves=Green Leaves", "Leaves=Colored Leaves", "Flowers and Fruits=Fruits"]
+    assert observed_groups(maple, labels) == {"Green Leaves", "Colored Leaves"}
+    assert observed_groups(maple, []) == set()

@@ -151,9 +151,8 @@ async def run(
 ) -> int:
     started = time.monotonic()
     now = now or datetime.now(UTC)
-    targets = load_targets(settings.targets_dir)
-    if target_filter:
-        targets = [t for t in targets if t.id == target_filter]
+    all_targets = load_targets(settings.targets_dir)
+    targets = [t for t in all_targets if not target_filter or t.id == target_filter]
     spots = load_spots(settings.spots_path)
     store = Store(settings.sqlite_path)
     stats: dict = {"started_at": export.iso(now), "model": settings.model_name, "targets": {}}
@@ -198,9 +197,19 @@ async def run(
         store.close()
         return 0
 
+    covered_ids = set(results)
+
+    def keep_existing(target_id: str, cell: dict) -> bool:
+        """Keep cells outside this run's scope (other targets, or outside the dev bbox)."""
+        if target_id not in covered_ids:
+            return True
+        return bbox is not None and not (
+            bbox[0] <= cell["lng"] <= bbox[2] and bbox[1] <= cell["lat"] <= bbox[3]
+        )
+
     out = settings.site_data_dir
-    changed = {"targets.json": export.export_targets(out, targets)}
-    changed.update(export.export_shards(out, targets, results, now))
+    changed = {"targets.json": export.export_targets(out, all_targets)}
+    changed.update(export.export_shards(out, all_targets, results, now, keep_existing))
     stats["files_changed"] = sorted(k for k, v in changed.items() if v)
     stats["duration_s"] = round(time.monotonic() - started, 1)
     export.export_run_stats(out, stats)

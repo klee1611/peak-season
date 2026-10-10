@@ -90,3 +90,21 @@ async def test_budget_caps_model_calls(tmp_path):
     assert model.photo_calls == 4
     cached = Store(tmp_path / "db.sqlite").db.execute("SELECT COUNT(*) FROM classifications")
     assert cached.fetchone()[0] == 4
+
+
+async def test_filtered_run_keeps_data_outside_its_scope(tmp_path):
+    from .conftest import fake_inat_handler
+
+    s = settings(tmp_path, max_photos_per_run=200)
+    transport = httpx.MockTransport(fake_inat_handler)
+    await run(s, now=NOW, model=FakeModel(), http_transport=transport)
+    before = json.loads((tmp_path / "out" / "index.json").read_text())
+
+    # Dev run: maple only, Toronto bbox only.
+    toronto = (-79.6, 43.55, -79.2, 43.85)
+    await run(s, "maple", toronto, now=NOW, model=FakeModel(), http_transport=transport)
+    after = json.loads((tmp_path / "out" / "index.json").read_text())
+    assert after["shards"] == before["shards"]  # Kyoto/Seoul maples and sakura are kept
+
+    targets = json.loads((tmp_path / "out" / "targets.json").read_text())
+    assert {t["id"] for t in targets["targets"]} == {"maple", "sakura"}

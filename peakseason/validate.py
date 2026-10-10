@@ -29,8 +29,13 @@ PASS_AGREEMENT = 0.70
 MIN_PHOTOS = 20
 
 
-async def sample(inat: INatClient, target: Target, per_group: int) -> list[tuple[str, dict]]:
-    """(group label, observation) pairs: research-grade, annotated, displayable photos."""
+async def sample(
+    inat: INatClient, target: Target, per_group: int, until: str | None = None
+) -> list[tuple[str, dict]]:
+    """(group label, observation) pairs: research-grade, annotated, displayable photos.
+
+    Each observation appears once, under the group it was sampled for.
+    """
     ann = target.inat_annotation
     if ann is None:
         raise SystemExit(f"{target.id}: no inat_annotation configured; cannot validate")
@@ -41,6 +46,7 @@ async def sample(inat: INatClient, target: Target, per_group: int) -> list[tuple
     values = {label: vid for vid, label in terms[term_id][1].items()}
     taxa = await inat.resolve_taxa(target)
     out = []
+    seen: set[int] = set()
     for group in ann.validation_groups:
         if group not in values:
             raise SystemExit(f"annotation value {group!r} not found for term {ann.term!r}")
@@ -54,18 +60,26 @@ async def sample(inat: INatClient, target: Target, per_group: int) -> list[tuple
                 "photo_license": ",".join(sorted(DISPLAYABLE_LICENSES)),
                 "quality_grade": "research",
                 "per_page": per_group * 2,  # some will be unusable after normalizing
+                **({"d2": until} if until else {}),
             },
         )
         picked = 0
         for obs in data.get("results", []):
             r = normalize(obs, target, terms)
-            if r and r.photo_url and picked < per_group:
+            if r and r.photo_url and picked < per_group and obs["id"] not in seen:
+                seen.add(obs["id"])
                 out.append((group, obs))
                 picked += 1
     return out
 
 
-async def validate(target_id: str, per_group: int) -> int:
+def observed_groups(target: Target, labels: list[str]) -> set[str]:
+    """Validation groups present among an observation's annotation labels ("Term=Value")."""
+    ann = target.inat_annotation
+    return {g for g in ann.validation_groups if f"{ann.term}={g}" in labels}
+
+
+async def validate(target_id: str, per_group: int, until: str | None = None) -> int:
     settings = get_settings()
     target = next((t for t in load_targets(settings.targets_dir) if t.id == target_id), None)
     if target is None:
@@ -77,7 +91,7 @@ async def validate(target_id: str, per_group: int) -> int:
         httpx.AsyncClient(timeout=settings.model_timeout_s) as mhttp,
     ):
         inat = INatClient(http, store)
-        pairs = await sample(inat, target, per_group)
+        pairs = await sample(inat, target, per_group, until)
         model = OpenAICompatModel(
             mhttp, settings.model_base_url, settings.model_name, settings.model_api_key
         )
@@ -87,8 +101,12 @@ async def validate(target_id: str, per_group: int) -> int:
         for group, obs in pairs:
             r = normalize(obs, target, terms)
             c = await clf.classify_photo(target, r.photo_url)
-            ok = c.status == "ok" and c.stage in target.inat_annotation.validation_groups[group]
-            rows.append((group, c.status, c.stage, ok, r.link))
+            # One observation can carry several values ("Green Leaves" and "Colored Leaves" on a
+            # half-turned tree); a stage that fits any of them agrees.
+            groups = observed_groups(target, r.annotations) or {group}
+            accepted = {st for g in groups for st in target.inat_annotation.validation_groups[g]}
+            ok = c.status == "ok" and c.stage in accepted
+            rows.append((" + ".join(sorted(groups)), c.status, c.stage, ok, r.link))
             log.info("%s -> %s %s %s", group, c.status, c.stage, "OK" if ok else "MISS")
     store.close()
 
@@ -99,7 +117,15 @@ async def validate(target_id: str, per_group: int) -> int:
     passed = n >= MIN_PHOTOS and rate >= PASS_AGREEMENT
     lat = clf.latencies
     print(f"\n### Validation: {target.id} ({datetime.now(UTC):%Y-%m-%d}, {settings.model_name})\n")
-    print(f"- Photos: {n} (research grade, annotated, CC-licensed)")
+    held_out = f", observed on or before {until}" if until else ""
+    print(f"- Photos: {n} (research grade, annotated, CC-licensed{held_out})")
+    both = sum(" + " in g for g, *_ in rows)
+    if both:
+        single = [ok for g, _, _, ok, _ in rows if " + " not in g]
+        print(
+            f"- {both} photos carry several annotation values (any stage in them agrees); "
+            f"without them: {sum(single)}/{len(single)} = {sum(single) / len(single):.0%}"
+        )
     print(f"- Coarse-stage agreement: {agree}/{n} = {rate:.0%} (pass needs >= 70% on >= 20)")
     print(f"- Rejected as not showing the target: {rejected}")
     if lat:
@@ -115,10 +141,11 @@ def main() -> int:
     p = argparse.ArgumentParser(prog="peakseason.validate")
     p.add_argument("--target", required=True)
     p.add_argument("--per-group", type=int, default=13)
+    p.add_argument("--until", help="only photos observed on or before this date (held-out set)")
     args = p.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
     logging.getLogger("httpx").setLevel(logging.WARNING)
-    return asyncio.run(validate(args.target, args.per_group))
+    return asyncio.run(validate(args.target, args.per_group, args.until))
 
 
 if __name__ == "__main__":

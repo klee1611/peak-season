@@ -8,6 +8,7 @@ rounded coordinates), and a file is only rewritten when its content (ignoring
 import json
 import logging
 from collections import defaultdict
+from collections.abc import Callable
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -92,18 +93,50 @@ def export_targets(out: Path, targets: list[Target]) -> bool:
     return write_if_changed(out / "targets.json", data)
 
 
+def existing_cells(out: Path) -> dict[str, list[dict]]:
+    """target_id -> cells currently exported, read back from the shards on disk."""
+    cells: dict[str, list[dict]] = defaultdict(list)
+    for p in sorted((out / "shards").glob("*.json")):
+        try:
+            data = json.loads(p.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+        for tid, items in (data.get("targets") or {}).items():
+            cells[tid].extend(items)
+    return cells
+
+
 def export_shards(
-    out: Path, targets: list[Target], results: dict[str, list[CellResult]], now: datetime
+    out: Path,
+    targets: list[Target],
+    results: dict[str, list[CellResult]],
+    now: datetime,
+    keep_existing: Callable[[str, dict], bool] | None = None,
 ) -> dict[str, bool]:
-    """Write one shard per geohash-2 region with data, plus index.json. Returns changed files."""
+    """Write one shard per geohash-2 region with data, plus index.json. Returns changed files.
+
+    `keep_existing(target_id, cell)` keeps already-exported cells this run did not cover (a
+    run limited to one target or a bbox must not wipe everything else).
+    """
+    tmap = {t.id: t for t in targets}
+    per_target: dict[str, list[dict]] = defaultdict(list)
+    for target_id, cells in results.items():
+        per_target[target_id] += [cell_json(c) for c in cells]
+    if keep_existing:
+        for tid, cells in existing_cells(out).items():
+            fresh = {c["cell"] for c in per_target[tid]}  # this run's result wins
+            if tid in tmap:
+                per_target[tid] += [
+                    c for c in cells if c["cell"] not in fresh and keep_existing(tid, c)
+                ]
+
     by_shard: dict[str, dict[str, list[dict]]] = defaultdict(lambda: defaultdict(list))
     go_now: dict[str, set[str]] = defaultdict(set)
-    tmap = {t.id: t for t in targets}
-    for target_id, cells in results.items():
-        for c in sorted(cells, key=lambda c: c.cell):
-            shard = c.cell[: geo.SHARD_PRECISION]
-            by_shard[shard][target_id].append(cell_json(c))
-            if c.stage and tmap[target_id].is_go_now(c.stage):
+    for target_id, cells in per_target.items():
+        for c in sorted(cells, key=lambda c: c["cell"]):
+            shard = c["cell"][: geo.SHARD_PRECISION]
+            by_shard[shard][target_id].append(c)
+            if tmap[target_id].is_go_now(c["stage"]):
                 go_now[shard].add(target_id)
 
     changed: dict[str, bool] = {}
