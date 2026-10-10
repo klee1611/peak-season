@@ -1,38 +1,77 @@
 {
   "classification": {
-    "candidates_uncached": 17,
-    "cells_classified_this_run": 6,
-    "classified_this_run": 10,
-    "latency_s_max": 76.3,
-    "latency_s_median": 59.3,
-    "planned": 10,
-    "skipped_for_next_run": 7
+    "candidates_uncached": 3252,
+    "cells_classified_this_run": 29,
+    "classified_this_run": 80,
+    "latency_s_max": 93.89,
+    "latency_s_median": 44.15,
+    "planned": 80,
+    "skipped_for_next_run": 3172
   },
-  "duration_s": 604.4,
+  "duration_s": 3680.3,
   "files_changed": [
     "index.json",
-    "shards/dp.json"
+    "shards/9r.json",
+    "shards/9x.json",
+    "shards/9z.json",
+    "shards/c2.json",
+    "shards/c3.json",
+    "shards/cb.json",
+    "shards/dj.json",
+    "shards/dn.json",
+    "shards/dp.json",
+    "shards/dq.json",
+    "shards/dr.json",
+    "shards/ez.json",
+    "shards/f0.json",
+    "shards/f2.json",
+    "shards/gc.json",
+    "shards/r1.json",
+    "shards/rc.json",
+    "shards/sp.json",
+    "shards/u2.json",
+    "shards/u3.json",
+    "shards/u7.json",
+    "shards/u8.json",
+    "shards/u9.json",
+    "shards/uc.json",
+    "shards/ue.json",
+    "shards/v6.json",
+    "shards/vc.json",
+    "shards/ww.json",
+    "shards/xn.json",
+    "targets.json"
   ],
   "model": "gemma4:e2b-it-qat",
   "serpapi": {
     "cached": 0,
     "calls": 0,
-    "planned": 1,
+    "planned": 25,
     "skipped": "no key",
     "text_reports": 0,
     "text_reports_with_stage": 0
   },
-  "started_at": "2026-10-10T02:20:29Z",
+  "started_at": "2026-10-10T02:34:35Z",
   "targets": {
     "maple": {
-      "annotation_signals": 0,
-      "cells_exported": 5,
-      "cells_seen": 21,
-      "cells_with_stage": 2,
+      "annotation_signals": 81,
+      "cells_exported": 75,
+      "cells_seen": 3059,
+      "cells_with_stage": 27,
+      "go_now_cells": 3,
+      "observations_fetched": 5599,
+      "reports_usable": 5342,
+      "with_displayable_photo": 4685
+    },
+    "sakura": {
+      "annotation_signals": 3,
+      "cells_exported": 1,
+      "cells_seen": 72,
+      "cells_with_stage": 0,
       "go_now_cells": 0,
-      "observations_fetched": 48,
-      "reports_usable": 48,
-      "with_displayable_photo": 42
+      "observations_fetched": 90,
+      "reports_usable": 86,
+      "with_displayable_photo": 77
     }
   }
 }
