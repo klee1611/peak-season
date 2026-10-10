@@ -11,7 +11,7 @@ directions in your own map app. Decide, tap Directions, go outside.
 
 Built for the DEV Hacktoberfest Open-Source AI Challenge, Week 1: "Touch Grass".
 
-- **Live site:** _Cloudflare Pages URL goes here_
+- **Live site:** https://peak-season-dvl.pages.dev/
 - **Runs at $0/month:** a static site plus a scheduled GitHub Actions job. No servers, no
   database, no paid APIs required.
 
