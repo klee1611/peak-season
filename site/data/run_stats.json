@@ -1,25 +1,32 @@
 {
   "classification": {
-    "candidates_uncached": 42,
-    "cells_classified_this_run": 4,
-    "classified_this_run": 12,
-    "latency_s_max": 30.89,
-    "latency_s_median": 16.79,
-    "planned": 12,
-    "skipped_for_next_run": 30
+    "candidates_uncached": 17,
+    "cells_classified_this_run": 6,
+    "classified_this_run": 10,
+    "latency_s_max": 76.3,
+    "latency_s_median": 59.3,
+    "planned": 10,
+    "skipped_for_next_run": 7
   },
-  "duration_s": 234.0,
+  "duration_s": 604.4,
   "files_changed": [
     "index.json",
-    "shards/dp.json",
-    "targets.json"
+    "shards/dp.json"
   ],
   "model": "gemma4:e2b-it-qat",
-  "started_at": "2026-10-10T01:49:25Z",
+  "serpapi": {
+    "cached": 0,
+    "calls": 0,
+    "planned": 1,
+    "skipped": "no key",
+    "text_reports": 0,
+    "text_reports_with_stage": 0
+  },
+  "started_at": "2026-10-10T02:20:29Z",
   "targets": {
     "maple": {
       "annotation_signals": 0,
-      "cells_exported": 3,
+      "cells_exported": 5,
       "cells_seen": 21,
       "cells_with_stage": 2,
       "go_now_cells": 0,
