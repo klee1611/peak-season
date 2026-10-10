@@ -1,0 +1,160 @@
+/* Peak Season: mobile-first, system fonts, light and dark. */
+:root {
+  --bg: #fbf8f3;
+  --surface: #ffffff;
+  --text: #1f1d1a;
+  --muted: #6a645b;
+  --border: #e6e0d6;
+  --accent: #b5441b;
+  --accent-text: #ffffff;
+  --go: #c2410c;
+  --stage-lo: #3f7d4e;
+  --stage-hi: #8a6a3d;
+  --none: #8c877f;
+  --radius: 14px;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161412;
+    --surface: #211e1b;
+    --text: #f1ece4;
+    --muted: #a8a196;
+    --border: #36312b;
+    --accent: #f08a5d;
+    --accent-text: #1a1210;
+    --go: #f08a5d;
+    --stage-lo: #7cbf8a;
+    --stage-hi: #c9a46c;
+    --none: #8c877f;
+  }
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Hiragino Sans", "Apple SD Gothic Neo", sans-serif;
+}
+
+.top, main, .foot {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.top { padding-top: 24px; }
+h1 { margin: 0; font-size: 1.6rem; letter-spacing: -0.01em; }
+.tagline { margin: 4px 0 16px; color: var(--muted); }
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.panel p { margin: 0; }
+
+select, button {
+  font: inherit;
+  color: inherit;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 12px;
+  min-height: 44px;
+}
+button { cursor: pointer; }
+
+.status { color: var(--muted); min-height: 1.5em; margin: 0; }
+
+.headline {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.chip { border-radius: 999px; }
+.chip[aria-selected="true"] {
+  background: var(--accent);
+  color: var(--accent-text);
+  border-color: var(--accent);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 16px;
+  color: var(--muted);
+}
+.controls label { display: flex; gap: 6px; align-items: center; }
+
+.cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+}
+
+.card-head { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+.place { margin: 0; font-size: 1.1rem; line-height: 1.3; overflow-wrap: anywhere; }
+
+.badge {
+  flex: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  color: color-mix(in srgb, var(--stage-lo), var(--stage-hi) calc(var(--progress, 0) * 100%));
+}
+.badge[data-stage="go"] { background: var(--go); border-color: var(--go); color: var(--accent-text); }
+.badge[data-stage="none"] { color: var(--none); font-weight: 500; }
+
+.meta { margin: 6px 0 10px; color: var(--muted); font-size: 0.92rem; }
+
+.evidence { margin: 0 0 8px; }
+.evidence img {
+  display: block;
+  width: 100%;
+  max-height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: var(--border);
+}
+.evidence figcaption { font-size: 0.78rem; color: var(--muted); margin-top: 4px; }
+
+.sources { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 0 0 10px; font-size: 0.85rem; }
+.sources:empty { display: none; }
+
+a { color: var(--accent); }
+
+.directions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.dir {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 44px;
+  padding: 6px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.dir.google { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+
+.foot { color: var(--muted); font-size: 0.82rem; padding-top: 24px; padding-bottom: 32px; }

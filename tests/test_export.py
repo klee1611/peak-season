@@ -1,0 +1,59 @@
+import json
+
+import pytest
+
+from peakseason import aggregate, export
+
+from .conftest import NOW
+
+
+def cells(targets, make_report):
+    reps = [
+        make_report(stage="peak", place_guess="High Park, Toronto, ON, CA"),
+        make_report(stage="peak", place_guess="High Park, Toronto, ON, CA"),
+        make_report("sakura", -33.8688, 151.2093, stage="buds", place_guess="Sydney, NSW, AU"),
+    ]
+    return {tid: aggregate.aggregate(t, reps, NOW, 7, []) for tid, t in targets.items()}
+
+
+def test_shards_and_index(tmp_path, targets, make_report):
+    results = cells(targets, make_report)
+    tl = list(targets.values())
+    export.export_targets(tmp_path, tl)
+    export.export_shards(tmp_path, tl, results, NOW)
+
+    index = json.loads((tmp_path / "index.json").read_text())
+    assert set(index["shards"]) == {"dp", "r3"}
+    assert index["shards"]["dp"]["go_now"] == ["maple"]
+    assert index["shards"]["r3"]["go_now"] == []
+
+    shard = json.loads((tmp_path / "shards" / "dp.json").read_text())
+    [cell] = shard["targets"]["maple"]
+    assert cell["stage"] == "peak" and cell["name"] == "High Park"
+    assert {"link", "thumb", "license", "attribution", "taken_at"} <= set(cell["evidence"][0])
+    assert shard["schema_version"] == export.SCHEMA_VERSION
+
+    syd = json.loads((tmp_path / "shards" / "r3.json").read_text())
+    assert syd["targets"]["sakura"][0]["stage"] == "not_enough_reports"
+
+
+def test_unchanged_content_is_not_rewritten(tmp_path, targets, make_report):
+    results = cells(targets, make_report)
+    tl = list(targets.values())
+    export.export_shards(tmp_path, tl, results, NOW)
+    later = NOW.replace(hour=23)
+    changed = export.export_shards(tmp_path, tl, results, later)
+    assert not any(changed.values())
+
+
+def test_stale_shards_removed(tmp_path, targets, make_report):
+    tl = list(targets.values())
+    export.export_shards(tmp_path, tl, cells(targets, make_report), NOW)
+    changed = export.export_shards(tmp_path, tl, {t: [] for t in targets}, NOW)
+    assert changed["shards/dp.json"] and not (tmp_path / "shards" / "dp.json").exists()
+
+
+def test_oversized_shard_fails(tmp_path, targets, make_report, monkeypatch):
+    monkeypatch.setattr(export, "MAX_SHARD_BYTES", 100)
+    with pytest.raises(ValueError, match="limit"):
+        export.export_shards(tmp_path, list(targets.values()), cells(targets, make_report), NOW)

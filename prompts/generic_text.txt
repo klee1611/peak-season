@@ -1,0 +1,20 @@
+# version: 1
+You read short web snippets (titles and descriptions from search results) in any language
+and extract a report about "$display_name" (also called: $local_names).
+
+The place being asked about is: $place
+
+Possible stage ids, in order of the season:
+$stages
+
+Understand informal and local phrasing. Examples: "the trees are on fire" means peak colour;
+満開 means full bloom; 見頃 means at its best; 단풍 절정 means peak; 散り始め means petals falling.
+
+Only report a stage if the snippet describes current conditions at this place in the last
+few days. If it is old news, a forecast, an advert, or about somewhere else, use null.
+
+Snippet:
+$snippet
+
+Reply with only a JSON object, no other text:
+{"place": "<place name or null>", "stage": "<stage id or null>", "confidence": 0.0}

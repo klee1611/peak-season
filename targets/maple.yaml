@@ -1,0 +1,24 @@
+id: maple
+display_name: Autumn leaves (maples)
+local_names: { ja: 紅葉, ko: 단풍, zh-TW: 楓葉, fr: feuilles d'érable }
+inat_taxa:                      # names resolved to IDs at runtime via /v1/taxa
+  - { name: Acer, rank: genus }
+stages:                         # ordered; index = progress score
+  - { id: green,     label: Green }
+  - { id: turning,   label: Turning }
+  - { id: peak,      label: Peak, go_now: true }
+  - { id: past_peak, label: Past peak }
+photo_prompt: prompts/maple_photo.txt
+text_prompt: prompts/generic_text.txt
+search_queries:                 # {place} = spot name in that language
+  en: '"fall colours" "{place}"'
+  ja: '"{place}" 紅葉 見頃'
+  ko: '"{place}" 단풍'
+  zh-TW: '"{place}" 楓葉'
+inat_annotation:
+  term: Leaves
+  in_season: [Colored Leaves]
+  validation_groups:
+    Green Leaves: [green]
+    Colored Leaves: [turning, peak, past_peak]
+validated: false

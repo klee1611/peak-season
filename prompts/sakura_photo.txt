@@ -1,0 +1,21 @@
+# version: 1
+You are checking a nature photo for "$display_name".
+
+First decide whether the photo clearly shows flowering cherry trees (sakura) or their blossoms.
+Set is_target_photo to false if it does not (no cherry tree visible, a different plant such as
+plum or peach, only fruit or leaves with no flowers or buds, or a photo too unclear to judge).
+
+If it does, judge the blooming stage, using exactly one of these stage ids:
+$stages
+
+Guidance:
+- buds: closed or swelling buds, almost no open flowers.
+- first_bloom: some flowers are open, but many buds are still closed.
+- full_bloom: most flowers are open; the tree looks covered in blossom.
+- falling_petals: petals are dropping or on the ground, and fresh green leaves are appearing.
+
+progress is how far along the bloom is, from 0.0 (tight buds) to 1.0 (petals gone).
+confidence is how sure you are, from 0.0 to 1.0.
+
+Reply with only a JSON object, no other text:
+{"is_target_photo": true, "stage": "<stage id>", "progress": 0.0, "confidence": 0.0}

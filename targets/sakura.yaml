@@ -1,0 +1,30 @@
+id: sakura
+display_name: Cherry blossoms (sakura)
+local_names: { ja: 桜, ko: 벚꽃, zh-TW: 櫻花 }
+# Ornamental flowering cherries only; genus Prunus would include plums and wild cherries.
+# All names confirmed to resolve in /v1/taxa on 2026-10-09.
+inat_taxa:
+  - { name: Prunus serrulata, rank: species }
+  - { name: Prunus × yedoensis, rank: hybrid }
+  - { name: Prunus × subhirtella, rank: hybrid }
+  - { name: Prunus campanulata, rank: species }
+  - { name: Prunus sargentii, rank: species }
+stages:
+  - { id: buds,           label: Buds }
+  - { id: first_bloom,    label: First bloom, go_now: true }
+  - { id: full_bloom,     label: Full bloom, go_now: true }
+  - { id: falling_petals, label: Falling petals }
+photo_prompt: prompts/sakura_photo.txt
+text_prompt: prompts/generic_text.txt
+search_queries:
+  en: '"cherry blossoms" "{place}"'
+  ja: '"{place}" 桜 開花'
+  ko: '"{place}" 벚꽃 개화'
+  zh-TW: '"{place}" 櫻花 花況'
+inat_annotation:
+  term: Flowers and Fruits
+  in_season: [Flowers]
+  validation_groups:
+    Flower Buds: [buds]
+    Flowers: [first_bloom, full_bloom, falling_petals]
+validated: false
