@@ -35,6 +35,7 @@ const I18N = {
     from_source: "Photo",
     see_original: "See original",
     famous_spot: "Famous spot",
+    show_more: "{count, plural, one {Show # more place} other {Show # more places}}",
     updated: "Last updated {ago}.",
     about:
       "Reports come from iNaturalist and the web, checked by Gemma, an open-weight AI model, running on a free GitHub Actions runner. Photos stay with their owners; we only link to them.",
@@ -161,9 +162,11 @@ const state = {
   radiusKm: Number(store.get("radius")) || 100,
   units: store.get("units") === "mi" ? "mi" : "km",
   chosenTarget: false,
+  showAll: false,
 };
 
 const $ = (id) => document.getElementById(id);
+const MAX_CARDS = 12;
 
 function fmtDistance(km) {
   const v = state.units === "mi" ? km * 0.621371 : km;
@@ -240,6 +243,7 @@ async function useLocation(place) {
   }
   $("status").textContent = "";
   state.chosenTarget = false;
+  state.showAll = false;
   render();
 }
 
@@ -316,13 +320,18 @@ function render() {
   renderChips(targets);
   const cells = sortCells(state.target, nearbyCells(state.target.id));
   $("headline").textContent = headlineText(state.target, cells);
-  $("cards").replaceChildren(...cells.map((c) => renderCard(state.target, c)));
+  // Keep the page short: the best few places first, the rest one tap away.
+  const shown = state.showAll ? cells : cells.slice(0, MAX_CARDS);
+  $("cards").replaceChildren(...shown.map((c) => renderCard(state.target, c)));
+  const more = $("more");
+  more.hidden = shown.length === cells.length;
+  more.textContent = t("show_more", { count: cells.length - shown.length });
 }
 
 function renderChips(targets) {
   const box = $("chips");
   box.replaceChildren();
-  box.hidden = targets.length < 2;
+  box.hidden = targets.length === 0;
   for (const tg of targets) {
     const b = document.createElement("button");
     b.type = "button";
@@ -333,6 +342,7 @@ function renderChips(targets) {
     b.addEventListener("click", () => {
       state.target = tg;
       state.chosenTarget = true;
+      state.showAll = false;
       render();
     });
     box.append(b);
@@ -467,6 +477,10 @@ async function main() {
     state.units = state.units === "km" ? "mi" : "km";
     store.set("units", state.units);
     applyStaticStrings();
+    render();
+  });
+  $("more").addEventListener("click", () => {
+    state.showAll = true;
     render();
   });
   $("change-place").addEventListener("click", () => {

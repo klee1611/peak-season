@@ -157,4 +157,6 @@ a { color: var(--accent); }
 }
 .dir.google { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
 
+.more { width: 100%; margin-top: 12px; }
+
 .foot { color: var(--muted); font-size: 0.82rem; padding-top: 24px; padding-bottom: 32px; }
