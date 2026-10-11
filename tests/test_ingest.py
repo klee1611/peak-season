@@ -108,3 +108,16 @@ async def test_filtered_run_keeps_data_outside_its_scope(tmp_path):
 
     targets = json.loads((tmp_path / "out" / "targets.json").read_text())
     assert {t["id"] for t in targets["targets"]} == {"maple", "sakura"}
+
+
+async def test_serpapi_key_reserves_time_for_snippets(tmp_path):
+    # The whole deadline is reserved for text, so no photo may be classified.
+    model = FakeModel()
+    await run_once(
+        tmp_path,
+        model,
+        serpapi_api_key="test",
+        classify_deadline_min=20,
+        text_reserve_min=20,
+    )
+    assert model.photo_calls == 0

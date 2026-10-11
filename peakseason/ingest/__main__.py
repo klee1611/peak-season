@@ -96,7 +96,8 @@ async def classify_budgeted(
     chosen = budget.plan(
         candidates, famous_cells, settings.max_photos_per_run, settings.max_photos_per_cell
     )
-    deadline = time.monotonic() + settings.classify_deadline_min * 60
+    reserve = settings.text_reserve_min if settings.serpapi_api_key else 0
+    deadline = time.monotonic() + (settings.classify_deadline_min - reserve) * 60
     done = 0
     for r in chosen:
         if time.monotonic() > deadline:

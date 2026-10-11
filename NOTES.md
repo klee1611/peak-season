@@ -91,3 +91,18 @@ unfetchable photo instead of aborting.
 - Coverage is the honest limit of free CPU inference: ~220 photos/day against ~3,000 new
   photos per 10 days. The cache keeps progress across runs, and a hosted Gemma endpoint
   (`MODEL_BASE_URL`) is the scaling path.
+
+## First run with SerpApi (Sat Oct 10, 07:10–08:40 UTC, run 38033386402)
+
+- Account API: 250 searches left at start (free plan is 250/month now, not 100); per-run cap 10.
+- 25 famous-spot queries planned (in season nearby, < 3 reports); 10 made, 15 skipped for budget.
+  Real queries included `"嵐山" 紅葉 見頃`, `"新宿御苑" 紅葉 見頃` (hl=ja, gl=jp) and
+  `"parc de la Gatineau" couleurs automne` (hl=fr, gl=ca). Each search took < 1 s except one (26 s).
+- 32 snippets came back. Gemma read 13 (~42 s each on CPU) before the 90-minute deadline; 1 gave a
+  stage. Early October snippets mostly say "not yet" or are generic, which is the honest answer.
+- **Problem:** photos ran first and used almost the whole deadline, leaving paid snippets unread.
+  Fix: when a SerpApi key is set, photo classification stops `TEXT_RESERVE_MIN` (20) minutes early.
+- Photos: 110 classified, median 43.8 s; 44 of 93 exported cells now have a stage; peak around
+  Chicago, North Bay (Ontario) and Bashkortostan. Sakura: 91 observations, no stage yet.
+- Whole run 90 min. Budget math: 250/month minus reserve 20 at ≤ 10 per run, with the 48 h cache,
+  lasts ~2–3 weeks of October before SerpApi pauses itself until the month resets.

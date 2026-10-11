@@ -34,6 +34,7 @@ env:
   INAT_USER_AGENT: "PeakSeason/0.1 (+https://github.com/${{ github.repository }}; open-source hackathon)"
   MAX_PHOTOS_PER_RUN: ${{ vars.MAX_PHOTOS_PER_RUN || '80' }}
   CLASSIFY_DEADLINE_MIN: ${{ vars.CLASSIFY_DEADLINE_MIN || '90' }}
+  TEXT_RESERVE_MIN: ${{ vars.TEXT_RESERVE_MIN || '20' }}
 
 jobs:
   ingest:

@@ -29,6 +29,9 @@ class Settings(BaseSettings):
     max_photos_per_run: int = 80
     max_photos_per_cell: int = 3
     classify_deadline_min: float = 90
+    # Minutes of the deadline kept for reading SerpApi snippets (only when a key is set), so
+    # paid searches are not left unread behind the photo queue.
+    text_reserve_min: float = 20
     window_days: int = 7
     fetch_days: int = 10
     inat_user_agent: str = (
