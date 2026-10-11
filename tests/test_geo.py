@@ -55,6 +55,11 @@ def test_haversine():
         ("여의도동, 서울특별시, 대한민국", ["여의도동", "서울특별시"]),
         ("89 Hongeunjungang-ro 3-gil, Seodaemun-gu, Seoul, South Korea", ["Seodaemun-gu", "Seoul"]),
         ("Unnamed Road, Kyoto, JP", ["Kyoto"]),
+        ("Buy now at example.com, Toronto, CA", ["Toronto"]),
+        ("https://x.example/y, Toronto, CA", ["Toronto"]),
+        ("@someone, Toronto, CA", ["Toronto"]),
+        ("St. Lawrence Market, Toronto, CA", ["St. Lawrence Market", "Toronto"]),
+        ("A" * 61 + ", Toronto, CA", ["Toronto"]),
         (None, []),
     ],
 )  # fmt: skip

@@ -99,6 +99,10 @@ _STREET = re.compile(
     r"highway|crescent|court|parkway)\.?( [nsew])?$|\b(at|after|before|near|off)\b",
     re.IGNORECASE,
 )
+# place_guess is free text anyone can type, and a cell name is shown to every visitor, so
+# anything that looks like a link, handle or email is not a place name.
+_LINKY = re.compile(r"https?://|www\.|@|\b[\w-]+\.[a-z]{2,}\b", re.IGNORECASE)
+MAX_PLACE_NAME = 60
 
 
 def _clean_part(part: str) -> str:
@@ -136,6 +140,8 @@ def place_parts(place_guess: str | None) -> list[str]:
     for p in raw:
         p = _clean_part(p).strip()
         if p.lower() in _JUNK or _CODE.match(p) or _STREET.search(p):
+            continue
+        if _LINKY.search(p) or len(p) > MAX_PLACE_NAME:
             continue
         out.append(p)
     return out
