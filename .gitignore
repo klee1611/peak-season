@@ -7,3 +7,6 @@ __pycache__/
 .ruff_cache/
 /test-results/
 .playwright-mcp/
+
+# DEV post draft stays local
+docs/devto-post.md
