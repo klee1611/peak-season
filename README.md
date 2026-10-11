@@ -76,6 +76,7 @@ uv run python -m peakseason.ingest --target maple --bbox "-79.6,43.55,-79.2,43.8
 uv run python -m http.server -d site 8000
 # open http://localhost:8000/?lat=43.65&lng=-79.38&all=1   (all=1 also shows unvalidated plants)
 # open http://localhost:8000/?fixtures=1&lat=35.01&lng=135.77  (offline fixture data)
+# add &lang=ja (or ko, zh-TW, en) to force a UI language; otherwise the browser's is used
 
 uv run pytest && uv run ruff check . && uv run ruff format --check .
 ```
@@ -120,8 +121,8 @@ tests/        pytest with recorded fixtures from Canada, Japan, Korea and Austra
 
 - More seasonal moments, each just a YAML file plus a prompt: plum blossoms, tulips, lavender,
   sunflowers, tamaracks, ginkgo (yellow), lupins.
-- Translated UI (Japanese, Korean, Traditional Chinese first); all strings already live in one
-  dictionary in `site/app.js`.
+- More UI languages. English, Japanese, Korean and Traditional Chinese are in; a language is one
+  entry in the `I18N` dictionary in `site/app.js` plus `local_labels` in each target's YAML.
 - "Make a day of it": nearby outdoor events for famous spots (Ticketmaster, SerpApi events).
 - A "data may be stale" notice if the last run is more than 5 days old.
 

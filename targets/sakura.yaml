@@ -9,11 +9,21 @@ inat_taxa:
   - { name: Prunus × subhirtella, rank: hybrid }
   - { name: Prunus campanulata, rank: species }
   - { name: Prunus sargentii, rank: species }
-stages:
-  - { id: buds,           label: Buds }
-  - { id: first_bloom,    label: First bloom, go_now: true }
-  - { id: full_bloom,     label: Full bloom, go_now: true }
-  - { id: falling_petals, label: Falling petals }
+stages:                         # ordered; index = progress score; local_labels are for the UI
+  - id: buds
+    label: Buds
+    local_labels: { ja: つぼみ, ko: 꽃봉오리, zh-TW: 含苞 }
+  - id: first_bloom
+    label: First bloom
+    local_labels: { ja: 咲き始め, ko: 개화 시작, zh-TW: 初開 }
+    go_now: true
+  - id: full_bloom
+    label: Full bloom
+    local_labels: { ja: 満開, ko: 만개, zh-TW: 滿開 }
+    go_now: true
+  - id: falling_petals
+    label: Falling petals
+    local_labels: { ja: 散り始め, ko: 꽃잎 지는 중, zh-TW: 落櫻 }
 photo_prompt: prompts/sakura_photo.txt
 text_prompt: prompts/generic_text.txt
 search_queries:

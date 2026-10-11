@@ -3,11 +3,20 @@ display_name: Autumn leaves (maples)
 local_names: { ja: 紅葉, ko: 단풍, zh-TW: 楓葉, fr: feuilles d'érable }
 inat_taxa:                      # names resolved to IDs at runtime via /v1/taxa
   - { name: Acer, rank: genus }
-stages:                         # ordered; index = progress score
-  - { id: green,     label: Green }
-  - { id: turning,   label: Turning }
-  - { id: peak,      label: Peak, go_now: true }
-  - { id: past_peak, label: Past peak }
+stages:                         # ordered; index = progress score; local_labels are for the UI
+  - id: green
+    label: Green
+    local_labels: { ja: 青葉, ko: 초록, zh-TW: 綠葉 }
+  - id: turning
+    label: Turning
+    local_labels: { ja: 色づき始め, ko: 물드는 중, zh-TW: 轉色中 }
+  - id: peak
+    label: Peak
+    local_labels: { ja: 見頃, ko: 절정, zh-TW: 最佳觀賞期 }
+    go_now: true
+  - id: past_peak
+    label: Past peak
+    local_labels: { ja: 見頃過ぎ, ko: 절정 지남, zh-TW: 已過最佳期 }
 photo_prompt: prompts/maple_photo.txt
 text_prompt: prompts/generic_text.txt
 search_queries:                 # {place} = spot name in that language

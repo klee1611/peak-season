@@ -13,6 +13,7 @@ from pydantic import BaseModel, Field, model_validator
 class Stage(BaseModel):
     id: str
     label: str
+    local_labels: dict[str, str] = Field(default_factory=dict)  # BCP-47 -> label, for the UI
     go_now: bool = False
 
 

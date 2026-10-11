@@ -65,3 +65,11 @@ def test_validate_groups_union(targets):
     labels = ["Leaves=Green Leaves", "Leaves=Colored Leaves", "Flowers and Fruits=Fruits"]
     assert observed_groups(maple, labels) == {"Green Leaves", "Colored Leaves"}
     assert observed_groups(maple, []) == set()
+
+
+def test_stage_translations_are_complete(targets):
+    # A language either labels every stage of a target or none, so the UI never mixes languages.
+    for target in targets.values():
+        langs = {lang for s in target.stages for lang in s.local_labels}
+        for s in target.stages:
+            assert set(s.local_labels) == langs, (target.id, s.id)
