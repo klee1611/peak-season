@@ -34,6 +34,9 @@ class CellResult:
     in_season_signals: int
     latest_report_at: datetime | None
     is_famous_spot: bool
+    # For a famous spot, Directions search its name: spots.yaml points can be area centroids,
+    # and the map app knows where visitors actually go.
+    directions_query: str | None = None
     evidence: list[Report] = field(default_factory=list)
 
 
@@ -112,6 +115,7 @@ def aggregate_cell(
         in_season_signals=len(signals),
         latest_report_at=max(r.observed_at for r in signals),
         is_famous_spot=spot is not None,
+        directions_query=f"{spot.local_name or spot.name}, {spot.country}" if spot else None,
         evidence=pick_evidence(recent),
     )
 

@@ -1,7 +1,7 @@
 # Famous viewing spots: used for cell naming, classification priority, and SerpApi queries.
 # Coordinates looked up in OpenStreetMap Nominatim on 2026-10-09 (not recalled from memory).
-# Entries marked "TODO verify" resolved to an area centroid or nearby feature; the developer
-# should check the point is where visitors actually go.
+# Points only place a spot in its ~5 km cell and set distance; Directions search the spot's name,
+# so a point marked "approximate" (an area centroid) is good enough.
 # lang is BCP-47 and picks the target's search template; country is ISO 3166-1 alpha-2.
 
 # Canada
@@ -31,21 +31,21 @@
 - { name: Yoshinoyama, local_name: 吉野山, lat: 34.3689, lng: 135.8601, country: JP, lang: ja, known_for: [sakura] }
 - { name: Hirosaki Park, local_name: 弘前公園, lat: 40.6080, lng: 140.4637, country: JP, lang: ja, known_for: [sakura, maple] }
 - { name: Mount Takao, local_name: 高尾山, lat: 35.6252, lng: 139.2437, country: JP, lang: ja, known_for: [maple] }  # summit
-- { name: Lake Chūzenji (Nikkō), local_name: 中禅寺湖, lat: 36.7368, lng: 139.4769, country: JP, lang: ja, known_for: [maple] }  # TODO verify: lake centroid
+- { name: Lake Chūzenji (Nikkō), local_name: 中禅寺湖, lat: 36.7368, lng: 139.4769, country: JP, lang: ja, known_for: [maple] }  # approximate: lake centroid
 
 # South Korea
 - { name: Yeouido, local_name: 여의도, lat: 37.5257, lng: 126.9361, country: KR, lang: ko, known_for: [sakura] }  # Yeouido Hangang Park
-- { name: Seoraksan, local_name: 설악산, lat: 38.1606, lng: 128.4959, country: KR, lang: ko, known_for: [maple] }  # TODO verify: Seorak-dong, near the Sogongwon entrance
+- { name: Seoraksan, local_name: 설악산, lat: 38.1606, lng: 128.4959, country: KR, lang: ko, known_for: [maple] }  # approximate: Seorak-dong, near the Sogongwon entrance
 - { name: Naejangsan, local_name: 내장산, lat: 35.4897, lng: 126.9020, country: KR, lang: ko, known_for: [maple] }  # Naejangsa temple
 - { name: Gyeonghwa Station (Jinhae), local_name: 경화역, lat: 35.1589, lng: 128.6864, country: KR, lang: ko, known_for: [sakura] }
 
 # Taiwan
 - { name: Yangmingshan, local_name: 陽明山, lat: 25.1590, lng: 121.5390, country: TW, lang: zh-TW, known_for: [sakura] }  # Flower Clock
-- { name: Alishan, local_name: 阿里山, lat: 23.5325, lng: 120.8051, country: TW, lang: zh-TW, known_for: [sakura] }  # TODO verify: recreation area centroid
+- { name: Alishan, local_name: 阿里山, lat: 23.5325, lng: 120.8051, country: TW, lang: zh-TW, known_for: [sakura] }  # approximate: recreation area centroid
 - { name: Wuling Farm, local_name: 武陵農場, lat: 24.3537, lng: 121.3103, country: TW, lang: zh-TW, known_for: [sakura] }
 - { name: Fushoushan Farm, local_name: 福壽山農場, lat: 24.2447, lng: 121.2453, country: TW, lang: zh-TW, known_for: [maple] }
 
 # Australia
 - { name: Auburn Botanic Gardens, lat: -33.8582, lng: 151.0173, country: AU, lang: en, known_for: [sakura] }
-- { name: Mount Wilson, lat: -33.5150, lng: 150.3678, country: AU, lang: en, known_for: [maple] }  # TODO verify: village centroid
+- { name: Mount Wilson, lat: -33.5150, lng: 150.3678, country: AU, lang: en, known_for: [maple] }  # approximate: village centroid
 - { name: Mount Macedon, lat: -37.3862, lng: 144.5759, country: AU, lang: en, known_for: [maple] }  # Memorial Cross

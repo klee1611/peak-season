@@ -103,6 +103,7 @@ def test_name_and_coords_from_reports(targets, make_report):
     assert cell.name == "High Park"
     assert cell.lat == pytest.approx(43.6465)
     assert not cell.is_famous_spot
+    assert cell.directions_query is None
 
 
 def test_famous_spot_sets_name_and_coords(targets, make_report):
@@ -122,5 +123,6 @@ def test_famous_spot_sets_name_and_coords(targets, make_report):
     assert all(r.cell == spot.cell for r in reps)
     [cell] = run(targets["maple"], reps, [spot])
     assert cell.is_famous_spot
+    assert cell.directions_query == "嵐山, JP"
     assert cell.name == "Arashiyama"
     assert (cell.lat, cell.lng) == (spot.lat, spot.lng)

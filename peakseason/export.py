@@ -39,6 +39,7 @@ def cell_json(c: CellResult) -> dict:
         "in_season_signals": c.in_season_signals,
         "latest_report_at": iso(c.latest_report_at),
         "is_famous_spot": c.is_famous_spot,
+        "directions_query": c.directions_query,
         "evidence": [
             {
                 "link": r.link,

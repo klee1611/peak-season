@@ -438,7 +438,8 @@ function renderCard(target, c) {
     sources.append(a);
   });
 
-  const dest = `${c.lat},${c.lng}`;
+  // Famous spots are searched by name; other places use the median photo location.
+  const dest = c.directions_query ? encodeURIComponent(c.directions_query) : `${c.lat},${c.lng}`;
   li.querySelector(".google").href = `https://www.google.com/maps/dir/?api=1&destination=${dest}`;
   li.querySelector(".apple").href = `https://maps.apple.com/?daddr=${dest}`;
   li.querySelector(".osm").href = `https://www.openstreetmap.org/directions?to=${dest}`;
