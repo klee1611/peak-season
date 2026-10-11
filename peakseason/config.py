@@ -20,6 +20,9 @@ class Settings(BaseSettings):
     targets_dir: Path = ROOT / "targets"
     prompts_dir: Path = ROOT / "prompts"
     spots_path: Path = ROOT / "data" / "spots.yaml"
+    history_dir: Path = ROOT / "data" / "history"
+    # Public address of the site, for canonical links, hreflang and the sitemap.
+    site_url: str = "https://peak-season-dvl.pages.dev"
 
     serpapi_api_key: str | None = None
     serpapi_cache_hours: float = 48

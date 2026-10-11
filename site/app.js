@@ -41,6 +41,8 @@ const I18N = {
     about:
       "Reports come from iNaturalist and the web, checked by Gemma, an open-weight AI model, running on a free GitHub Actions runner. Photos stay with their owners; we only link to them.",
     language: "Language",
+    famous_spots: "Famous spots",
+    how_it_works: "How it works",
     sentence_gap: " ",
   },
   ja: {
@@ -77,6 +79,8 @@ const I18N = {
     about:
       "レポートは iNaturalist とウェブから集め、無料の GitHub Actions ランナー上で動くオープンウェイトAIモデル Gemma が確認しています。写真は撮影者のもので、ここではリンクのみ表示しています。",
     language: "言語",
+    famous_spots: "名所",
+    how_it_works: "仕組み",
     sentence_gap: "",
   },
   ko: {
@@ -113,6 +117,8 @@ const I18N = {
     about:
       "제보는 iNaturalist와 웹에서 모으며, 무료 GitHub Actions 러너에서 실행되는 오픈 웨이트 AI 모델 Gemma가 확인합니다. 사진은 원작자의 것이며, 여기서는 링크만 제공합니다.",
     language: "언어",
+    famous_spots: "명소",
+    how_it_works: "작동 방식",
     sentence_gap: " ",
   },
   "zh-TW": {
@@ -149,15 +155,26 @@ const I18N = {
     about:
       "回報來自 iNaturalist 與網路，由在免費 GitHub Actions 執行器上運行的開放權重 AI 模型 Gemma 檢查。照片屬於原作者，我們只提供連結。",
     language: "語言",
+    famous_spots: "知名景點",
+    how_it_works: "運作方式",
     sentence_gap: "",
   },
 };
 // Language names shown in the picker, each in its own language.
 const LANG_NAMES = { en: "English", ja: "日本語", ko: "한국어", "zh-TW": "繁體中文" };
 
-/** ?lang= first, then the viewer's saved choice, then the browser's preferred languages. */
+// Language homes (/ja/, /ko/, /zh-tw/) preset their language with <html data-lang>.
+const PAGE_LANG = document.documentElement.dataset.lang || null;
+const langHome = (lang) => (lang === "en" ? "/" : `/${lang.toLowerCase()}/`);
+
+/** ?lang= first, then the language home's own language, then the saved choice, then the browser. */
 function pickLang() {
-  const wanted = [new URLSearchParams(location.search).get("lang"), safeGet("lang"), ...(navigator.languages || [])];
+  const wanted = [
+    new URLSearchParams(location.search).get("lang"),
+    PAGE_LANG,
+    safeGet("lang"),
+    ...(navigator.languages || []),
+  ];
   for (const tag of wanted) {
     if (!tag) continue;
     if (Object.hasOwn(I18N, tag)) return tag;
@@ -289,7 +306,7 @@ const store = {
 };
 
 const params = new URLSearchParams(location.search);
-const DATA = params.has("fixtures") ? "data/fixtures/" : "data/";
+const DATA = params.has("fixtures") ? "/data/fixtures/" : "/data/";
 const SHOW_UNVALIDATED = params.has("all"); // dev only: show targets not yet validated
 
 const state = {
@@ -614,6 +631,7 @@ function applyStaticStrings() {
   $("units").textContent =
     state.units === "km" ? `${t("units_km")} → ${t("units_mi")}` : `${t("units_mi")} → ${t("units_km")}`;
   $("lang").setAttribute("aria-label", t("language"));
+  $("spots-link").href = `${langHome(LANG)}spots/`;
 }
 
 function setupLangPicker() {
@@ -629,7 +647,13 @@ function setupLangPicker() {
   sel.addEventListener("change", () => {
     setLang(sel.value);
     store.set("lang", LANG);
-    // Keep a shared ?lang= link in step with the choice.
+    // On a language home, open the chosen language's own home (its title and link tags are in
+    // its HTML); a ?lang= link just keeps its parameter in step.
+    if (!params.has("lang") && (PAGE_LANG || location.pathname === "/")) {
+      const qs = params.toString();
+      location.assign(langHome(LANG) + (qs ? `?${qs}` : ""));
+      return;
+    }
     if (params.has("lang")) {
       params.set("lang", LANG);
       history.replaceState(null, "", `?${params}`);

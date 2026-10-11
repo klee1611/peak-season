@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /data/fixtures/
+
+Sitemap: https://peak-season-dvl.pages.dev/sitemap.xml

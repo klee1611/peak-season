@@ -119,7 +119,7 @@ jobs:
 
       - name: Commit data
         run: |
-          git add site/data
+          git add site data/history
           if git diff --cached --quiet; then
             echo "No data changes; nothing to commit."
             exit 0

@@ -47,6 +47,11 @@ Built for the DEV Hacktoberfest Open-Source AI Challenge, Week 1: "Touch Grass".
    "Not enough reports"; Peak Season never invents a status.
 7. **Export.** Small JSON shards per ~1,250 km region. Visitors only download their region and
    its neighbours, and never trigger an API or model call.
+8. **Pages for search engines.** From the same JSON, the job writes plain HTML pages that need no
+   JavaScript: a home per language (`/ja/`, `/ko/`, `/zh-tw/`), and a page per famous spot and
+   language (`/spots/arashiyama/`, `/ja/spots/arashiyama/`) with its current status, plus
+   `sitemap.xml`. It also keeps one status per spot and day in `data/history/<year>.json`, so a
+   season's peak dates survive after the shards move on.
 
 ## Seasonal targets are config, not code
 
@@ -105,6 +110,10 @@ GitHub disables scheduled workflows in public repos after 60 days without reposi
   platforms.
 - The site loads no third-party scripts, fonts or trackers.
 
+**Known limit:** several photos from the same person count as several reports (often one tree
+photographed a few times), so one account can make a place show a stage. Gemma still has to
+agree with the photos. Counting each observer once is planned.
+
 ## Layout
 
 ```
@@ -112,8 +121,9 @@ peakseason/   ingest (inaturalist, serpapi, budget, runner), model (client, clas
               geo, targets, aggregate, export, store, config, validate
 targets/      maple.yaml, sakura.yaml
 prompts/      photo and text prompts (versioned; the version is part of the cache key)
-data/         spots.yaml (famous spots, coordinates from OpenStreetMap)
-site/         index.html, app.js, styles.css, data/ (generated)
+data/         spots.yaml (famous spots, coordinates from OpenStreetMap), history/ (generated)
+site/         index.html, app.js, styles.css, about/, 404.html, robots.txt
+              generated: data/, spots/, ja/ ko/ zh-tw/, sitemap.xml (python -m peakseason.pages)
 tests/        pytest with recorded fixtures from Canada, Japan, Korea and Australia
 ```
 

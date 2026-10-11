@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How Peak Season works: photos, Gemma and honest limits | Peak Season</title>
+  <meta name="description" content="How Peak Season decides whether autumn leaves or cherry blossoms are at their peak: recent iNaturalist photos and web reports, checked by Gemma, an open-weight AI model, validated against community annotations.">
+  <link rel="canonical" href="https://peak-season-dvl.pages.dev/about/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Peak Season">
+  <meta property="og:title" content="How Peak Season works">
+  <meta property="og:description" content="Recent photos, checked by an open-weight AI model on a free CI runner, validated before anything goes live.">
+  <meta property="og:url" content="https://peak-season-dvl.pages.dev/about/">
+  <meta property="og:image" content="https://peak-season-dvl.pages.dev/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","name":"How Peak Season works","url":"https://peak-season-dvl.pages.dev/about/","inLanguage":"en","author":{"@type":"Person","name":"klee1611","sameAs":["https://github.com/klee1611"]},"isPartOf":{"@type":"WebSite","name":"Peak Season","url":"https://peak-season-dvl.pages.dev/"}}</script>
+</head>
+<body>
+  <header class="top">
+    <p class="crumbs"><a href="/">Peak Season</a></p>
+    <h1>How Peak Season works</h1>
+    <p class="tagline">Where nature is at its peak near you, right now, and how we know.</p>
+  </header>
+  <main>
+    <h2>Where the reports come from</h2>
+    <p>Twice a day, a scheduled job collects recent public photos of each plant from
+      <a href="https://www.inaturalist.org">iNaturalist</a>, worldwide. Only photos whose Creative
+      Commons licence allows showing them are used. For world-famous viewing spots with few
+      photos, it also searches the web in the spot's own language (through SerpApi), for example
+      <q lang="ja">嵐山 紅葉 見頃</q>.</p>
+
+    <h2>Who decides the stage</h2>
+    <p>Gemma, an open-weight AI model, runs on the job's own free cloud machine. It looks at each
+      photo and answers: is this really the plant, and is it green, turning, at peak or past peak
+      (or, for cherry blossoms: buds, first bloom, full bloom, falling petals)? It also reads web
+      snippets in any language. Photos are never sent to a third-party AI service.</p>
+    <p>Reports are grouped into areas about 5 km across. Fresh, confident reports count more.
+      With fewer than two reports, a place shows <strong>Not enough reports</strong>; Peak Season
+      never guesses.</p>
+
+    <h2>Testing before anything goes live</h2>
+    <p>A plant only appears after its prompt agrees with iNaturalist's community annotations
+      ("Green Leaves", "Colored Leaves", "Flowers") on at least 20 photos, at 70% or better.</p>
+    <ul class="spot-list">
+      <li>Maples: first prompt 62% (failed); improved prompt 81%, and 81% again on 26 older photos
+        it had never seen.</li>
+      <li>Cherry blossoms: 92%. Caveat: none of the test photos showed buds only, so "buds" versus
+        "bloom" has not really been tested.</li>
+    </ul>
+
+    <h2>Known limits</h2>
+    <ul class="spot-list">
+      <li>The free machine is slow (about 45 seconds per photo), so each run checks about 110
+        photos; coverage grows run by run.</li>
+      <li>Several photos from the same person count as several reports. Often that's one tree
+        photographed a few times.</li>
+      <li>Most photos come from North America and Europe; famous spots in Asia rely more on web
+        reports.</li>
+      <li>AI can be wrong. Every card links to the original photos so you can check.</li>
+    </ul>
+
+    <h2>Photos, data and privacy</h2>
+    <p>Photos are never copied or stored here. Each one is shown from its original host with its
+      photographer's credit and licence, and links to the original post. Your location stays in
+      your browser; the site has no accounts, no cookies and no trackers.</p>
+
+    <h2>Who made it</h2>
+    <p>Built by <a href="https://github.com/klee1611">klee1611</a> for the DEV Hacktoberfest Open-Source AI Challenge (October 2026).
+      The code, prompts and validation results are open source on
+      <a href="https://github.com/klee1611/peak-season">GitHub</a> (MIT licence).</p>
+  </main>
+  <footer class="foot">
+    <p><a href="/">Peak Season</a> · <a href="/spots/">Famous spots</a> ·
+      <a href="https://github.com/klee1611/peak-season">GitHub</a></p>
+  </footer>
+</body>
+</html>

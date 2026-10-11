@@ -14,7 +14,7 @@ from datetime import UTC, datetime, timedelta
 
 import httpx
 
-from peakseason import aggregate, export
+from peakseason import aggregate, export, pages
 from peakseason.config import ROOT, Settings, get_settings
 from peakseason.ingest import budget, serpapi
 from peakseason.ingest.inaturalist import INatClient, normalize
@@ -213,6 +213,12 @@ async def run(
     changed.update(export.export_shards(out, all_targets, results, now, keep_existing))
     stats["files_changed"] = sorted(k for k, v in changed.items() if v)
     stats["duration_s"] = round(time.monotonic() - started, 1)
+    try:
+        # Static pages and history are extras: a bug there must never block the data commit.
+        stats["pages_changed"] = len(pages.write_pages(settings))
+        stats["history_changed"] = pages.record_history(settings)
+    except Exception:
+        log.exception("static pages failed; data export is unaffected")
     export.export_run_stats(out, stats)
     log.info("exported; changed: %s", stats["files_changed"])
     store.close()

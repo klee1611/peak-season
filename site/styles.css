@@ -161,3 +161,10 @@ a { color: var(--accent); }
 .more { width: 100%; margin-top: 12px; }
 
 .foot { color: var(--muted); font-size: 0.82rem; padding-top: 24px; padding-bottom: 32px; }
+
+/* Static pages (spots, about, 404) */
+.crumbs { margin: 0 0 4px; font-size: 0.9rem; color: var(--muted); }
+.spot-list { padding-left: 20px; display: grid; gap: 6px; }
+.langs { font-size: 0.9rem; }
+main > h2 { font-size: 1.1rem; margin: 24px 0 8px; }
+main > .card { margin-bottom: 12px; }

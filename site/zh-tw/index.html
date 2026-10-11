@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-TW" data-lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- seo:start -->
+  <title>Peak Season｜即時查看附近楓葉與櫻花的最佳觀賞期</title>
+  <meta name="description" content="由開源 AI 模型 Gemma 檢查最近的照片，告訴你附近哪裡的楓葉與櫻花正值最美。免費、免註冊、全球適用。">
+  <link rel="canonical" href="https://peak-season-dvl.pages.dev/zh-tw/">
+  <link rel="alternate" hreflang="en" href="https://peak-season-dvl.pages.dev/">
+  <link rel="alternate" hreflang="ja" href="https://peak-season-dvl.pages.dev/ja/">
+  <link rel="alternate" hreflang="ko" href="https://peak-season-dvl.pages.dev/ko/">
+  <link rel="alternate" hreflang="zh-TW" href="https://peak-season-dvl.pages.dev/zh-tw/">
+  <link rel="alternate" hreflang="x-default" href="https://peak-season-dvl.pages.dev/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Peak Season">
+  <meta property="og:title" content="Peak Season｜即時查看附近楓葉與櫻花的最佳觀賞期">
+  <meta property="og:description" content="由開源 AI 模型 Gemma 檢查最近的照片，告訴你附近哪裡的楓葉與櫻花正值最美。免費、免註冊、全球適用。">
+  <meta property="og:url" content="https://peak-season-dvl.pages.dev/zh-tw/">
+  <meta property="og:image" content="https://peak-season-dvl.pages.dev/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "name": "Peak Season", "url": "https://peak-season-dvl.pages.dev/", "inLanguage": "zh-TW"}, {"@type": "WebApplication", "name": "Peak Season", "url": "https://peak-season-dvl.pages.dev/zh-tw/", "inLanguage": "zh-TW", "applicationCategory": "TravelApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": 0, "priceCurrency": "USD"}, "description": "由開源 AI 模型 Gemma 檢查最近的照片，告訴你附近哪裡的楓葉與櫻花正值最美。免費、免註冊、全球適用。"}]}</script>
+  <!-- seo:end -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="top">
+    <select id="lang" class="lang"></select>
+    <h1>Peak Season</h1>
+    <p class="tagline" data-i18n="tagline"></p>
+  </header>
+
+  <main>
+    <section id="locate" class="panel" hidden>
+      <p id="locate-msg"></p>
+      <label for="city" data-i18n="pick_city"></label>
+      <select id="city"></select>
+      <button id="use-location" type="button" data-i18n="use_my_location"></button>
+    </section>
+
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+
+    <section id="results" hidden>
+      <p id="headline" class="headline"></p>
+      <div id="chips" class="chips" role="tablist"></div>
+      <div class="controls">
+        <label><span data-i18n="within"></span>
+          <select id="radius">
+            <option value="50">50</option>
+            <option value="100" selected>100</option>
+            <option value="250">250</option>
+            <option value="500">500</option>
+          </select>
+        </label>
+        <button id="units" type="button"></button>
+        <button id="change-place" type="button" data-i18n="change_place"></button>
+      </div>
+      <ol id="cards" class="cards"></ol>
+      <button id="more" class="more" type="button" hidden></button>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p id="updated"></p>
+    <p id="about"></p>
+    <p><a id="spots-link" href="/spots/" data-i18n="famous_spots"></a> ·
+      <a href="/about/" data-i18n="how_it_works"></a> ·
+      <a href="https://github.com/klee1611/peak-season">GitHub</a></p>
+  </footer>
+
+  <template id="card-tpl">
+    <li class="card">
+      <div class="card-head">
+        <h2 class="place"></h2>
+        <span class="badge"></span>
+      </div>
+      <p class="meta"></p>
+      <figure class="evidence" hidden>
+        <a class="evidence-link" rel="noopener" target="_blank">
+          <img alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        </a>
+        <figcaption></figcaption>
+      </figure>
+      <p class="sources"></p>
+      <div class="directions">
+        <a class="dir google" rel="noopener" target="_blank">Google Maps</a>
+        <a class="dir apple" rel="noopener" target="_blank">Apple Maps</a>
+        <a class="dir osm" rel="noopener" target="_blank">OpenStreetMap</a>
+      </div>
+    </li>
+  </template>
+
+  <script src="/app.js"></script>
+</body>
+</html>
