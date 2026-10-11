@@ -75,3 +75,16 @@ async def test_cache_hit_skips_model(targets, http):
 
 def test_extract_json_tolerates_text():
     assert extract_json('Sure! {"a": 1} hope that helps') == {"a": 1}
+
+
+async def test_oversized_photo_is_refused(targets, monkeypatch):
+    from peakseason.model import classify as mod
+
+    monkeypatch.setattr(mod, "MAX_IMAGE_BYTES", 8)
+    transport = httpx.MockTransport(lambda req: httpx.Response(200, content=b"x" * 64))
+    async with httpx.AsyncClient(transport=transport) as client:
+        model = FakeModel([])
+        clf = Classifier(model, Store(":memory:"), client, ROOT)
+        with pytest.raises(httpx.HTTPError):
+            await clf.classify_photo(targets["maple"], URL)
+        assert model.calls == 0

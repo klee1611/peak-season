@@ -22,6 +22,9 @@ from peakseason.targets import Target
 
 log = logging.getLogger("peakseason.classify")
 
+# iNaturalist "medium" photos are well under 1 MB.
+MAX_IMAGE_BYTES = 10_000_000
+
 RETRY_NOTE = (
     "\n\nYour previous reply was not valid. Reply with only the JSON object, "
     "using one of the listed stage ids."
@@ -113,9 +116,7 @@ class Classifier:
             display_name=target.display_name, stages=stage_list(target)
         )
         # The image is held in memory only; it is never written to disk or committed.
-        resp = await self.http.get(url, timeout=30, follow_redirects=True)
-        resp.raise_for_status()
-        image = resp.content
+        image = await self._download(url)
 
         start = time.monotonic()
         result = await self._ask(text, image, lambda d: self._valid_photo(d, target))
@@ -142,6 +143,19 @@ class Classifier:
         took = time.monotonic() - start
         self.store.put_classification(key, target.id, item_id, result, self.model.name, took)
         return result
+
+    async def _download(self, url: str) -> bytes:
+        """Fetch a photo, refusing anything over MAX_IMAGE_BYTES so one odd URL can't exhaust
+        the runner's memory."""
+        async with self.http.stream("GET", url, timeout=30, follow_redirects=True) as resp:
+            resp.raise_for_status()
+            chunks, size = [], 0
+            async for chunk in resp.aiter_bytes():
+                size += len(chunk)
+                if size > MAX_IMAGE_BYTES:
+                    raise httpx.HTTPError(f"photo larger than {MAX_IMAGE_BYTES} bytes: {url}")
+                chunks.append(chunk)
+        return b"".join(chunks)
 
     async def _ask(self, prompt: str, image: bytes | None, validate) -> Classification:
         for attempt in range(2):

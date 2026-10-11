@@ -11,6 +11,7 @@ from collections import defaultdict
 from collections.abc import Callable
 from datetime import UTC, datetime
 from pathlib import Path
+from urllib.parse import urlsplit
 
 from peakseason import geo
 from peakseason.aggregate import CellResult
@@ -20,6 +21,12 @@ log = logging.getLogger("peakseason.export")
 
 SCHEMA_VERSION = 1
 MAX_SHARD_BYTES = 300_000
+
+
+def web_url(url: str | None) -> str | None:
+    """The URL if it is http(s), else None. Links come from third-party APIs and end up in
+    href/src attributes, so a javascript: or data: URL must never reach the site."""
+    return url if url and urlsplit(url).scheme in ("http", "https") else None
 
 
 def iso(dt: datetime | None) -> str | None:
@@ -42,17 +49,18 @@ def cell_json(c: CellResult) -> dict:
         "directions_query": c.directions_query,
         "evidence": [
             {
-                "link": r.link,
+                "link": web_url(r.link),
                 "source": r.source,
                 "kind": r.kind,
                 "stage": r.stage,
-                "thumb": r.photo_url,
+                "thumb": web_url(r.photo_url),
                 "license": r.license,
                 "attribution": r.attribution,
                 "title": r.title,
                 "taken_at": iso(r.observed_at),
             }
             for r in c.evidence
+            if web_url(r.link)
         ],
     }
 

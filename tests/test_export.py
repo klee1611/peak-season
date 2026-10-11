@@ -57,3 +57,13 @@ def test_oversized_shard_fails(tmp_path, targets, make_report, monkeypatch):
     monkeypatch.setattr(export, "MAX_SHARD_BYTES", 100)
     with pytest.raises(ValueError, match="limit"):
         export.export_shards(tmp_path, list(targets.values()), cells(targets, make_report), NOW)
+
+
+def test_only_web_links_are_exported(targets, make_report):
+    bad = make_report(stage="peak", place_guess="High Park, Toronto, ON, CA")
+    bad.link = "javascript:alert(1)"
+    bad.photo_url = "data:image/png;base64,AAAA"
+    good = make_report(stage="peak", place_guess="High Park, Toronto, ON, CA")
+    [cell] = aggregate.aggregate(targets["maple"], [bad, good], NOW, 7, [])
+    links = [e["link"] for e in export.cell_json(cell)["evidence"]]
+    assert links and all(link.startswith("https://") for link in links)

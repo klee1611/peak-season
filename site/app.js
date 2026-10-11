@@ -160,10 +160,10 @@ function pickLang() {
   const wanted = [new URLSearchParams(location.search).get("lang"), safeGet("lang"), ...(navigator.languages || [])];
   for (const tag of wanted) {
     if (!tag) continue;
-    if (tag in I18N) return tag;
+    if (Object.hasOwn(I18N, tag)) return tag;
     const base = tag.toLowerCase().split("-")[0];
     if (base === "zh") return "zh-TW"; // the only Chinese UI so far
-    if (base in I18N) return base;
+    if (Object.hasOwn(I18N, base)) return base;
   }
   return "en";
 }
@@ -185,7 +185,7 @@ function setLang(lang) {
 
 /** t("key", {var: value}). Supports {var} and a tiny {count, plural, one {...} other {...}}. */
 function t(key, vars = {}) {
-  let s = (I18N[LANG] && I18N[LANG][key]) ?? I18N.en[key] ?? key;
+  let s = (Object.hasOwn(I18N[LANG], key) ? I18N[LANG][key] : I18N.en[key]) ?? key;
   s = s.replace(/\{(\w+), plural, one \{([^}]*)\} other \{([^}]*)\}\}/g, (_, name, one, other) => {
     const n = vars[name];
     return (PLURALS.select(n) === "one" ? one : other).replace("#", fmtNum(n));
