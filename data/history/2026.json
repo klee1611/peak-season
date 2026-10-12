@@ -64,9 +64,15 @@
   }
  },
  "2026-10-12": {
+  "arnold-arboretum": {
+   "maple": {
+    "reports": 2,
+    "stage": "peak"
+   }
+  },
   "brooklyn-botanic-garden": {
    "maple": {
-    "reports": 8,
+    "reports": 7,
     "stage": "green"
    }
   },
@@ -74,11 +80,15 @@
    "maple": {
     "reports": 1,
     "stage": "not_enough_reports"
+   },
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
    }
   },
   "gatineau-park": {
    "maple": {
-    "reports": 2,
+    "reports": 3,
     "stage": "turning"
    }
   },
@@ -90,7 +100,7 @@
   },
   "kew-gardens": {
    "maple": {
-    "reports": 2,
+    "reports": 3,
     "stage": "turning"
    }
   },
@@ -101,6 +111,12 @@
    }
   },
   "shinjuku-gyoen": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "t-fuku-ji": {
    "maple": {
     "reports": 1,
     "stage": "not_enough_reports"
