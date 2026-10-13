@@ -124,6 +124,18 @@
   }
  },
  "2026-10-13": {
+  "algonquin-park-visitor-centre": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "alishan": {
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
   "arnold-arboretum": {
    "maple": {
     "reports": 2,
@@ -132,7 +144,7 @@
   },
   "brooklyn-botanic-garden": {
    "maple": {
-    "reports": 7,
+    "reports": 4,
     "stage": "green"
    }
   },
@@ -166,8 +178,8 @@
   },
   "mount-royal-park": {
    "maple": {
-    "reports": 2,
-    "stage": "peak"
+    "reports": 1,
+    "stage": "not_enough_reports"
    }
   },
   "shinjuku-gyoen": {
