@@ -210,8 +210,12 @@
   },
   "arnold-arboretum": {
    "maple": {
-    "reports": 2,
+    "reports": 4,
     "stage": "peak"
+   },
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
    }
   },
   "brooklyn-botanic-garden": {
@@ -236,9 +240,15 @@
     "stage": "peak"
    }
   },
+  "high-park": {
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
   "kew-gardens": {
    "maple": {
-    "reports": 3,
+    "reports": 2,
     "stage": "turning"
    }
   },
@@ -249,12 +259,6 @@
    }
   },
   "shinjuku-gyoen": {
-   "maple": {
-    "reports": 1,
-    "stage": "not_enough_reports"
-   }
-  },
-  "t-fuku-ji": {
    "maple": {
     "reports": 1,
     "stage": "not_enough_reports"
