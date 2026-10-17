@@ -434,5 +434,99 @@
     "stage": "not_enough_reports"
    }
   }
+ },
+ "2026-10-17": {
+  "algonquin-park-visitor-centre": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "alishan": {
+   "sakura": {
+    "reports": 2,
+    "stage": "full_bloom"
+   }
+  },
+  "arnold-arboretum": {
+   "maple": {
+    "reports": 4,
+    "stage": "peak"
+   },
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "auburn-botanic-gardens": {
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "brooklyn-botanic-garden": {
+   "maple": {
+    "reports": 4,
+    "stage": "green"
+   }
+  },
+  "central-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   },
+   "sakura": {
+    "reports": 2,
+    "stage": "first_bloom"
+   }
+  },
+  "fushoushan-farm": {
+   "maple": {
+    "reports": 2,
+    "stage": "turning"
+   }
+  },
+  "gatineau-park": {
+   "maple": {
+    "reports": 4,
+    "stage": "peak"
+   }
+  },
+  "high-park": {
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "kew-gardens": {
+   "maple": {
+    "reports": 2,
+    "stage": "turning"
+   }
+  },
+  "mount-royal-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "seoraksan": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "stanley-park": {
+   "maple": {
+    "reports": 6,
+    "stage": "turning"
+   }
+  },
+  "yangmingshan": {
+   "sakura": {
+    "reports": 2,
+    "stage": "first_bloom"
+   }
+  }
  }
 }
