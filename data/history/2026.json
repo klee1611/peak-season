@@ -450,8 +450,8 @@
   },
   "arnold-arboretum": {
    "maple": {
-    "reports": 4,
-    "stage": "peak"
+    "reports": 1,
+    "stage": "not_enough_reports"
    },
    "sakura": {
     "reports": 1,
@@ -466,7 +466,7 @@
   },
   "brooklyn-botanic-garden": {
    "maple": {
-    "reports": 4,
+    "reports": 3,
     "stage": "green"
    }
   },
@@ -476,14 +476,14 @@
     "stage": "not_enough_reports"
    },
    "sakura": {
-    "reports": 2,
-    "stage": "first_bloom"
+    "reports": 3,
+    "stage": "full_bloom"
    }
   },
   "fushoushan-farm": {
    "maple": {
-    "reports": 2,
-    "stage": "turning"
+    "reports": 1,
+    "stage": "not_enough_reports"
    }
   },
   "gatineau-park": {
@@ -510,21 +510,31 @@
     "stage": "not_enough_reports"
    }
   },
-  "seoraksan": {
+  "mount-takao": {
    "maple": {
     "reports": 1,
     "stage": "not_enough_reports"
    }
   },
+  "seoraksan": {
+   "maple": {
+    "reports": 2,
+    "stage": "peak"
+   }
+  },
   "stanley-park": {
    "maple": {
-    "reports": 6,
+    "reports": 7,
     "stage": "turning"
+   },
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
    }
   },
   "yangmingshan": {
    "sakura": {
-    "reports": 2,
+    "reports": 3,
     "stage": "first_bloom"
    }
   }
