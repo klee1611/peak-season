@@ -540,6 +540,12 @@
   }
  },
  "2026-10-18": {
+  "alishan": {
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
   "arnold-arboretum": {
    "maple": {
     "reports": 1,
@@ -548,6 +554,12 @@
    "sakura": {
     "reports": 1,
     "stage": "not_enough_reports"
+   }
+  },
+  "auburn-botanic-gardens": {
+   "sakura": {
+    "reports": 4,
+    "stage": "full_bloom"
    }
   },
   "brooklyn-botanic-garden": {
@@ -572,22 +584,10 @@
     "stage": "not_enough_reports"
    }
   },
-  "gatineau-park": {
-   "maple": {
-    "reports": 4,
-    "stage": "peak"
-   }
-  },
   "high-park": {
    "sakura": {
     "reports": 1,
     "stage": "not_enough_reports"
-   }
-  },
-  "kew-gardens": {
-   "maple": {
-    "reports": 2,
-    "stage": "turning"
    }
   },
   "mount-royal-park": {
