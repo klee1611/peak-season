@@ -1,23 +1,24 @@
 {
   "classification": {
     "candidates_uncached": 2528,
-    "cells_classified_this_run": 38,
-    "classified_this_run": 110,
-    "latency_s_max": 36.47,
-    "latency_s_median": 23.64,
+    "cells_classified_this_run": 32,
+    "classified_this_run": 95,
+    "latency_s_max": 71.39,
+    "latency_s_median": 44.75,
     "planned": 110,
-    "skipped_for_next_run": 2418
+    "skipped_for_next_run": 2433
   },
-  "duration_s": 3560.0,
+  "duration_s": 5258.2,
   "files_changed": [
     "index.json",
+    "shards/9p.json",
     "shards/9q.json",
     "shards/9r.json",
-    "shards/9x.json",
+    "shards/9t.json",
+    "shards/9v.json",
+    "shards/9w.json",
     "shards/9y.json",
-    "shards/9z.json",
     "shards/c2.json",
-    "shards/c3.json",
     "shards/cb.json",
     "shards/dj.json",
     "shards/dn.json",
@@ -27,53 +28,50 @@
     "shards/f2.json",
     "shards/f8.json",
     "shards/gc.json",
+    "shards/r3.json",
     "shards/sp.json",
-    "shards/u1.json",
     "shards/u3.json",
-    "shards/u9.json",
     "shards/uc.json",
-    "shards/uf.json",
     "shards/v1.json",
-    "shards/v2.json",
+    "shards/wk.json",
     "shards/ws.json",
     "shards/ww.json",
-    "shards/wy.json",
-    "shards/xn.json"
+    "shards/wy.json"
   ],
   "history_changed": true,
   "model": "gemma4:e2b-it-qat",
-  "pages_changed": 132,
+  "pages_changed": 133,
   "serpapi": {
     "allowed": 10,
-    "cached": 17,
-    "calls": 8,
-    "planned": 25,
-    "searches_left_at_start": 158,
+    "cached": 18,
+    "calls": 6,
+    "planned": 24,
+    "searches_left_at_start": 150,
     "skipped_for_budget": 0,
-    "text_reports": 111,
-    "text_reports_with_stage": 16
+    "text_reports": 106,
+    "text_reports_with_stage": 14
   },
-  "started_at": "2026-10-17T18:32:06Z",
+  "started_at": "2026-10-18T08:51:40Z",
   "targets": {
     "maple": {
-      "annotation_signals": 115,
-      "cells_exported": 249,
-      "cells_seen": 3234,
+      "annotation_signals": 106,
+      "cells_exported": 244,
+      "cells_seen": 3144,
       "cells_with_stage": 166,
-      "go_now_cells": 34,
-      "observations_fetched": 6418,
-      "reports_usable": 6151,
-      "with_displayable_photo": 5390
+      "go_now_cells": 29,
+      "observations_fetched": 6216,
+      "reports_usable": 5955,
+      "with_displayable_photo": 5228
     },
     "sakura": {
       "annotation_signals": 2,
-      "cells_exported": 11,
-      "cells_seen": 84,
-      "cells_with_stage": 4,
-      "go_now_cells": 4,
-      "observations_fetched": 115,
-      "reports_usable": 110,
-      "with_displayable_photo": 95
+      "cells_exported": 9,
+      "cells_seen": 82,
+      "cells_with_stage": 3,
+      "go_now_cells": 3,
+      "observations_fetched": 116,
+      "reports_usable": 113,
+      "with_displayable_photo": 97
     }
   }
 }

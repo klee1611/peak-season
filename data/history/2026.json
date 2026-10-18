@@ -538,5 +538,85 @@
     "stage": "first_bloom"
    }
   }
+ },
+ "2026-10-18": {
+  "arnold-arboretum": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   },
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "brooklyn-botanic-garden": {
+   "maple": {
+    "reports": 3,
+    "stage": "green"
+   }
+  },
+  "central-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   },
+   "sakura": {
+    "reports": 3,
+    "stage": "full_bloom"
+   }
+  },
+  "fushoushan-farm": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "gatineau-park": {
+   "maple": {
+    "reports": 4,
+    "stage": "peak"
+   }
+  },
+  "high-park": {
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "kew-gardens": {
+   "maple": {
+    "reports": 2,
+    "stage": "turning"
+   }
+  },
+  "mount-royal-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "mount-takao": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "stanley-park": {
+   "maple": {
+    "reports": 9,
+    "stage": "turning"
+   },
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "yangmingshan": {
+   "sakura": {
+    "reports": 2,
+    "stage": "first_bloom"
+   }
+  }
  }
 }
