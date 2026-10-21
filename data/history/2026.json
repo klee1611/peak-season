@@ -788,12 +788,6 @@
     "stage": "not_enough_reports"
    }
   },
-  "central-park": {
-   "maple": {
-    "reports": 1,
-    "stage": "not_enough_reports"
-   }
-  },
   "high-park": {
    "maple": {
     "reports": 1,
