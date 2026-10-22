@@ -840,5 +840,53 @@
     "stage": "first_bloom"
    }
   }
+ },
+ "2026-10-22": {
+  "arnold-arboretum": {
+   "maple": {
+    "reports": 3,
+    "stage": "peak"
+   }
+  },
+  "brooklyn-botanic-garden": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "high-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "mount-royal-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "stanley-park": {
+   "maple": {
+    "reports": 8,
+    "stage": "turning"
+   },
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "westonbirt-arboretum": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "yangmingshan": {
+   "sakura": {
+    "reports": 2,
+    "stage": "first_bloom"
+   }
+  }
  }
 }
