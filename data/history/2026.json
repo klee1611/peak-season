@@ -924,5 +924,83 @@
     "stage": "first_bloom"
    }
   }
+ },
+ "2026-10-23": {
+  "algonquin-park-visitor-centre": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "arnold-arboretum": {
+   "maple": {
+    "reports": 3,
+    "stage": "peak"
+   }
+  },
+  "central-park": {
+   "sakura": {
+    "reports": 2,
+    "stage": "full_bloom"
+   }
+  },
+  "fushoushan-farm": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "high-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "mount-royal-park": {
+   "maple": {
+    "reports": 2,
+    "stage": "green"
+   }
+  },
+  "mount-takao": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "shinjuku-gyoen": {
+   "sakura": {
+    "reports": 2,
+    "stage": "first_bloom"
+   }
+  },
+  "stanley-park": {
+   "maple": {
+    "reports": 7,
+    "stage": "turning"
+   },
+   "sakura": {
+    "reports": 2,
+    "stage": "full_bloom"
+   }
+  },
+  "ueno-park": {
+   "sakura": {
+    "reports": 2,
+    "stage": "full_bloom"
+   }
+  },
+  "westonbirt-arboretum": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "yangmingshan": {
+   "sakura": {
+    "reports": 2,
+    "stage": "first_bloom"
+   }
+  }
  }
 }
