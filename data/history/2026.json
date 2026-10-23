@@ -938,6 +938,12 @@
     "stage": "peak"
    }
   },
+  "brooklyn-botanic-garden": {
+   "maple": {
+    "reports": 3,
+    "stage": "turning"
+   }
+  },
   "central-park": {
    "sakura": {
     "reports": 2,
@@ -950,10 +956,16 @@
     "stage": "not_enough_reports"
    }
   },
-  "high-park": {
+  "gatineau-park": {
    "maple": {
     "reports": 1,
     "stage": "not_enough_reports"
+   }
+  },
+  "high-park": {
+   "maple": {
+    "reports": 2,
+    "stage": "peak"
    }
   },
   "mount-royal-park": {
@@ -976,7 +988,7 @@
   },
   "stanley-park": {
    "maple": {
-    "reports": 7,
+    "reports": 6,
     "stage": "turning"
    },
    "sakura": {
