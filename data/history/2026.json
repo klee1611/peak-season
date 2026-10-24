@@ -1014,5 +1014,93 @@
     "stage": "first_bloom"
    }
   }
+ },
+ "2026-10-24": {
+  "algonquin-park-visitor-centre": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "arnold-arboretum": {
+   "maple": {
+    "reports": 3,
+    "stage": "peak"
+   }
+  },
+  "brooklyn-botanic-garden": {
+   "maple": {
+    "reports": 5,
+    "stage": "turning"
+   }
+  },
+  "central-park": {
+   "maple": {
+    "reports": 3,
+    "stage": "peak"
+   },
+   "sakura": {
+    "reports": 2,
+    "stage": "full_bloom"
+   }
+  },
+  "fushoushan-farm": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "gatineau-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "high-park": {
+   "maple": {
+    "reports": 2,
+    "stage": "peak"
+   }
+  },
+  "mount-royal-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "mount-takao": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "shinjuku-gyoen": {
+   "sakura": {
+    "reports": 2,
+    "stage": "first_bloom"
+   }
+  },
+  "stanley-park": {
+   "maple": {
+    "reports": 2,
+    "stage": "turning"
+   },
+   "sakura": {
+    "reports": 2,
+    "stage": "full_bloom"
+   }
+  },
+  "t-fuku-ji": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "ueno-park": {
+   "sakura": {
+    "reports": 2,
+    "stage": "full_bloom"
+   }
+  }
  }
 }
