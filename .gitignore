@@ -10,3 +10,7 @@ __pycache__/
 
 # DEV post draft stays local
 docs/devto-post.md
+
+# Demo video build (demo/)
+demo/node_modules/
+demo/out/

@@ -1,0 +1,15 @@
+{
+  "name": "peakseason-demo",
+  "private": true,
+  "description": "Builds the demo video: Playwright clips + HTML-rendered cards, stitched with ffmpeg.",
+  "type": "module",
+  "scripts": {
+    "record": "node record.mjs",
+    "cards": "node cards.mjs",
+    "stitch": "node stitch.mjs",
+    "build": "node record.mjs && node cards.mjs && node stitch.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.64.1"
+  }
+}

@@ -11,7 +11,10 @@ directions in your own map app. Decide, tap Directions, go outside.
 
 Built for the DEV Hacktoberfest Open-Source AI Challenge, Week 1: "Touch Grass".
 
+[![Watch the 47-second demo on YouTube](docs/demo-poster.jpg)](https://youtu.be/sB6V2_vK_bE)
+
 - **Live site:** https://peak-season-dvl.pages.dev/
+- **Demo video (47 s):** https://youtu.be/sB6V2_vK_bE
 - **Runs at $0/month:** a static site plus a scheduled GitHub Actions job. No servers, no
   database, no paid APIs required.
 
@@ -125,6 +128,8 @@ data/         spots.yaml (famous spots, coordinates from OpenStreetMap), history
 site/         index.html, app.js, styles.css, about/, 404.html, robots.txt
               generated: data/, spots/, ja/ ko/ zh-tw/, sitemap.xml (python -m peakseason.pages)
 tests/        pytest with recorded fixtures from Canada, Japan, Korea and Australia
+demo/         the demo video: Playwright clips of the live site, captions and title cards
+              rendered from HTML, stitched with ffmpeg (cd demo && npm install && npm run build)
 ```
 
 ## What's next
@@ -135,6 +140,18 @@ tests/        pytest with recorded fixtures from Canada, Japan, Korea and Austra
   entry in the `I18N` dictionary in `site/app.js` plus `local_labels` in each target's YAML.
 - "Make a day of it": nearby outdoor events for famous spots (Ticketmaster, SerpApi events).
 - A "data may be stale" notice if the last run is more than 5 days old.
+
+## Changes after the challenge deadline
+
+The challenge closed on Oct 11, 2026. Commits since then, apart from the scheduled
+`data: ingest run` commits:
+
+- **Oct 25:** UX fixes from a usability audit (empty states that point to the closest peak,
+  famous spots in the place picker, Directions above the photo, radius labelled in the chosen
+  unit, accessibility fixes).
+- **Oct 25:** Security hardening (API keys kept out of error messages, `certifi` update, GitHub
+  Actions pinned to commit SHAs, Ollama installed from a hash-checked release, tighter CSP).
+- **Oct 25:** Demo video and the `demo/` scripts that build it.
 
 ## License
 
