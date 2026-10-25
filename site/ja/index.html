@@ -34,26 +34,27 @@
   <main>
     <section id="locate" class="panel" hidden>
       <p id="locate-msg"></p>
-      <label for="city" data-i18n="pick_city"></label>
+      <label for="city" data-i18n="pick_place"></label>
       <select id="city"></select>
-      <button id="use-location" type="button" data-i18n="use_my_location"></button>
+      <button id="use-location" class="primary" type="button" data-i18n="use_my_location"></button>
+      <button id="cancel-place" type="button" data-i18n="cancel" hidden></button>
     </section>
 
     <p id="status" class="status" role="status" aria-live="polite"></p>
 
     <section id="results" hidden>
       <p id="headline" class="headline"></p>
-      <div id="chips" class="chips" role="tablist"></div>
+      <button id="widen" class="primary widen" type="button" hidden></button>
+      <p id="updated" class="updated"></p>
+      <div id="chips" class="chips" role="group"></div>
       <div class="controls">
         <label><span data-i18n="within"></span>
-          <select id="radius">
-            <option value="50">50</option>
-            <option value="100" selected>100</option>
-            <option value="250">250</option>
-            <option value="500">500</option>
-          </select>
+          <select id="radius"></select>
         </label>
-        <button id="units" type="button"></button>
+        <div class="seg" role="group">
+          <button type="button" data-units="km"></button>
+          <button type="button" data-units="mi"></button>
+        </div>
         <button id="change-place" type="button" data-i18n="change_place"></button>
       </div>
       <ol id="cards" class="cards"></ol>
@@ -62,7 +63,6 @@
   </main>
 
   <footer class="foot">
-    <p id="updated"></p>
     <p id="about"></p>
     <p><a id="spots-link" href="/spots/" data-i18n="famous_spots"></a> ·
       <a href="/about/" data-i18n="how_it_works"></a> ·
@@ -76,6 +76,11 @@
         <span class="badge"></span>
       </div>
       <p class="meta"></p>
+      <div class="directions">
+        <a class="dir google" rel="noopener" target="_blank">Google Maps</a>
+        <a class="dir apple" rel="noopener" target="_blank">Apple Maps</a>
+        <a class="dir osm" rel="noopener" target="_blank">OpenStreetMap</a>
+      </div>
       <figure class="evidence" hidden>
         <a class="evidence-link" rel="noopener" target="_blank">
           <img alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
@@ -83,11 +88,6 @@
         <figcaption></figcaption>
       </figure>
       <p class="sources"></p>
-      <div class="directions">
-        <a class="dir google" rel="noopener" target="_blank">Google Maps</a>
-        <a class="dir apple" rel="noopener" target="_blank">Apple Maps</a>
-        <a class="dir osm" rel="noopener" target="_blank">OpenStreetMap</a>
-      </div>
     </li>
   </template>
 

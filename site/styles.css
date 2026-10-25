@@ -73,18 +73,21 @@ select, button {
   min-height: 44px;
 }
 button { cursor: pointer; }
+button.primary { background: var(--accent); color: var(--accent-text); border-color: var(--accent); font-weight: 600; }
 
 .status { color: var(--muted); min-height: 1.5em; margin: 0; }
 
 .headline {
   font-size: 1.15rem;
   font-weight: 600;
-  margin: 0 0 12px;
+  margin: 0 0 4px;
 }
+.widen { width: 100%; margin: 8px 0 4px; }
+.updated { margin: 0 0 12px; color: var(--muted); font-size: 0.85rem; }
 
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
 .chip { border-radius: 999px; }
-.chip[aria-selected="true"] {
+.chip[aria-pressed="true"] {
   background: var(--accent);
   color: var(--accent-text);
   border-color: var(--accent);
@@ -99,6 +102,14 @@ button { cursor: pointer; }
   color: var(--muted);
 }
 .controls label { display: flex; gap: 6px; align-items: center; }
+.plant-label { font-weight: 600; color: var(--accent); }
+
+/* km | mi segmented toggle */
+.seg { display: inline-flex; }
+.seg button { border-radius: 0; min-width: 48px; }
+.seg button:first-child { border-radius: 10px 0 0 10px; }
+.seg button:last-child { border-radius: 0 10px 10px 0; border-left: none; }
+.seg button[aria-pressed="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
 
 .cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
 
@@ -122,22 +133,25 @@ button { cursor: pointer; }
   color: color-mix(in srgb, var(--stage-lo), var(--stage-hi) calc(var(--progress, 0) * 100%));
 }
 .badge[data-stage="go"] { background: var(--go); border-color: var(--go); color: var(--accent-text); }
+/* go_now from very few reports: same colour, but outlined so it reads as tentative */
+.badge.tentative[data-stage="go"] { background: transparent; color: var(--go); border-style: dashed; }
 .badge[data-stage="none"] { color: var(--none); font-weight: 500; }
 
 .meta { margin: 6px 0 10px; color: var(--muted); font-size: 0.92rem; }
 
-.evidence { margin: 0 0 8px; }
+.evidence { margin: 10px 0 8px; }
 .evidence img {
   display: block;
   width: 100%;
-  max-height: 260px;
+  max-height: 200px;
   object-fit: cover;
   border-radius: 10px;
   background: var(--border);
 }
 .evidence figcaption { font-size: 0.78rem; color: var(--muted); margin-top: 4px; }
 
-.sources { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 0 0 10px; font-size: 0.85rem; }
+.sources { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 0; font-size: 0.85rem; }
+.sources span { color: var(--muted); }
 .sources:empty { display: none; }
 
 a { color: var(--accent); }

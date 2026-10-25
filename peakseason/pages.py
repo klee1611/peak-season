@@ -54,7 +54,7 @@ TEXT = {
         "photo_by": "Photo",
         "originals": "Original posts",
         "directions": "Directions",
-        "open_app": "Open the live map of places near here",
+        "open_app": "See other places near here",
         "nearby": "Other famous spots nearby",
         "all_spots": "All famous spots",
         "updated": "Updated {date}",
@@ -79,7 +79,7 @@ TEXT = {
         "photo_by": "写真",
         "originals": "元の投稿",
         "directions": "経路",
-        "open_app": "この近くの最新情報をアプリで見る",
+        "open_app": "この近くのほかの場所を見る",
         "nearby": "近くの名所",
         "all_spots": "すべての名所",
         "updated": "{date}更新",
@@ -104,7 +104,7 @@ TEXT = {
         "photo_by": "사진",
         "originals": "원본 게시물",
         "directions": "길찾기",
-        "open_app": "이 근처의 최신 정보를 앱에서 보기",
+        "open_app": "이 근처의 다른 장소 보기",
         "nearby": "근처의 다른 명소",
         "all_spots": "모든 명소",
         "updated": "{date} 업데이트",
@@ -129,7 +129,7 @@ TEXT = {
         "photo_by": "照片",
         "originals": "原始貼文",
         "directions": "路線",
-        "open_app": "在應用程式中查看附近的最新狀況",
+        "open_app": "查看附近的其他地點",
         "nearby": "附近的其他知名景點",
         "all_spots": "所有知名景點",
         "updated": "{date}更新",
@@ -168,6 +168,11 @@ def plain_name(name: str) -> str:
 def plant_name(target: dict, lang: str) -> str:
     local = (target.get("local_names") or {}).get(lang)
     return local or plain_name(target["display_name"]).lower()
+
+
+def capitalize(s: str) -> str:
+    """Sentence case for headings; a no-op for scripts without case."""
+    return s[:1].upper() + s[1:]
 
 
 def stage_label(target: dict, stage_id: str, lang: str) -> str | None:
@@ -345,7 +350,7 @@ def spot_page(data: Data, spot: Spot, lang: str, site_url: str) -> str:
         sections.append(
             f"""    <section class="card">
       <div class="card-head">
-        <h2 class="place">{esc(plant_name(target, lang))}</h2>
+        <h2 class="place">{esc(capitalize(plant_name(target, lang)))}</h2>
         {f'<span class="badge" data-stage="{"go" if go else "s"}">{esc(badge)}</span>' if badge else ""}
       </div>
       <p>{esc(sentence)}</p>
@@ -547,6 +552,23 @@ def write_text_if_changed(path: Path, text: str) -> bool:
     return True
 
 
+def spots_json(data: Data) -> str:
+    """Famous spots for the site's place picker (the same spots that have pages)."""
+    rows = [
+        {
+            "id": s.id,
+            "name": s.name,
+            "local_name": s.local_name,
+            "lang": s.lang,
+            "country": s.country,
+            "lat": s.lat,
+            "lng": s.lng,
+        }
+        for s in data.spots
+    ]
+    return json.dumps({"spots": rows}, ensure_ascii=False, separators=(",", ":")) + "\n"
+
+
 def write_pages(settings: Settings) -> list[str]:
     """Regenerate every static page from site/data. Returns the paths that changed."""
     site = settings.site_data_dir.parent
@@ -565,6 +587,8 @@ def write_pages(settings: Settings) -> list[str]:
             )
     files["sitemap.xml"] = sitemap(data, site_url)
     changed = [rel for rel, text in files.items() if write_text_if_changed(site / rel, text)]
+    if write_text_if_changed(settings.site_data_dir / "spots.json", spots_json(data)):
+        changed.append("data/spots.json")
     log.info("pages: %d files, %d changed", len(files), len(changed))
     return changed
 

@@ -97,3 +97,11 @@ def test_history_keeps_one_entry_per_day(site):
     assert not pages.record_history(site)
     [day] = json.loads((site.history_dir / f"{NOW.year}.json").read_text()).values()
     assert day["arashiyama"]["maple"] == {"stage": "peak", "reports": 2}
+
+
+def test_spots_json_feeds_the_place_picker(site):
+    pages.write_pages(site)
+    spots = json.loads((site.site_data_dir / "spots.json").read_text(encoding="utf-8"))["spots"]
+    arashiyama = next(s for s in spots if s["id"] == "arashiyama")
+    assert arashiyama["local_name"] == "嵐山"
+    assert (arashiyama["lat"], arashiyama["lng"]) == ARASHIYAMA
