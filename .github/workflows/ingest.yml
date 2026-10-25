@@ -28,7 +28,10 @@ env:
   MODEL_NAME: ${{ vars.MODEL_NAME || 'gemma4:e2b-it-qat' }}
   MODEL_BASE_URL: ${{ secrets.MODEL_BASE_URL || 'http://localhost:11434/v1' }}
   MODEL_API_KEY: ${{ secrets.MODEL_API_KEY || 'ollama' }}
+  # Bumping the version means updating the hash too: it is the sha256 of
+  # ollama-linux-amd64.tar.zst listed in that release's sha256sum.txt on GitHub.
   OLLAMA_VERSION: "0.40.2"
+  OLLAMA_SHA256: 726bee78706c281b0eeef00746efe51a044d71c592c3f0b195820707f31fdf04
   OLLAMA_MODELS: /home/runner/.ollama/models
   SQLITE_PATH: .cache/peakseason.db
   INAT_USER_AGENT: "PeakSeason/0.1 (+https://github.com/${{ github.repository }}; open-source hackathon)"
@@ -41,9 +44,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
-      - uses: astral-sh/setup-uv@v6
+      - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6.8.0
         with:
           python-version: "3.12"
       - run: uv sync --frozen
@@ -52,7 +55,7 @@ jobs:
       - name: Restore Gemma model cache
         if: startsWith(env.MODEL_BASE_URL, 'http://localhost')
         id: model-cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: ${{ env.OLLAMA_MODELS }}
           key: ollama-${{ env.MODEL_NAME }}
@@ -60,10 +63,15 @@ jobs:
       - name: Install and start Ollama
         if: startsWith(env.MODEL_BASE_URL, 'http://localhost')
         run: |
-          curl -fsSL https://ollama.com/install.sh | sh
-          # The installer starts a system service as another user; run our own instead so the
-          # model directory is the one we cache.
-          sudo systemctl stop ollama || true
+          # The release tarball, checked against a pinned hash, instead of piping install.sh to a
+          # shell: this job can push to the repo, so nothing unverified runs in it.
+          curl -fsSL -o ollama.tar.zst \
+            "https://github.com/ollama/ollama/releases/download/v${OLLAMA_VERSION}/ollama-linux-amd64.tar.zst"
+          echo "${OLLAMA_SHA256}  ollama.tar.zst" | sha256sum -c -
+          sudo tar --zstd -xf ollama.tar.zst -C /usr/local
+          rm ollama.tar.zst
+          ollama --version
+          # No system service: our own server, so the model directory is the one we cache.
           mkdir -p "$OLLAMA_MODELS"
           nohup ollama serve > ollama.log 2>&1 &
           for i in $(seq 1 60); do
@@ -78,7 +86,7 @@ jobs:
 
       - name: Save Gemma model cache
         if: startsWith(env.MODEL_BASE_URL, 'http://localhost') && steps.model-cache.outputs.cache-hit != 'true'
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: ${{ env.OLLAMA_MODELS }}
           key: ollama-${{ env.MODEL_NAME }}
@@ -91,7 +99,7 @@ jobs:
 
       # The SQLite cache only saves re-classification work; losing it is harmless.
       - name: Restore SQLite cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: .cache
           key: db-${{ github.run_id }}
@@ -132,7 +140,7 @@ jobs:
 
       - name: Save SQLite cache
         if: always()
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: .cache
           key: db-${{ github.run_id }}

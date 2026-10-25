@@ -29,6 +29,17 @@ def web_url(url: str | None) -> str | None:
     return url if url and urlsplit(url).scheme in ("http", "https") else None
 
 
+# Photos are shown straight from iNaturalist, never rehosted. The site's CSP img-src
+# (site/_headers) allows only these hosts, so a thumbnail anywhere else is dropped here
+# rather than shown as a broken image. Keep the two lists in step (a test checks).
+THUMB_HOSTS = ("inaturalist-open-data.s3.amazonaws.com", "static.inaturalist.org")
+
+
+def thumb_url(url: str | None) -> str | None:
+    parts = urlsplit(url or "")
+    return url if parts.scheme == "https" and parts.hostname in THUMB_HOSTS else None
+
+
 def iso(dt: datetime | None) -> str | None:
     if dt is None:
         return None
@@ -53,7 +64,7 @@ def cell_json(c: CellResult) -> dict:
                 "source": r.source,
                 "kind": r.kind,
                 "stage": r.stage,
-                "thumb": web_url(r.photo_url),
+                "thumb": thumb_url(r.photo_url),
                 "license": r.license,
                 "attribution": r.attribution,
                 "title": r.title,

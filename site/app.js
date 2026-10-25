@@ -762,6 +762,11 @@ function compass(deg) {
   return t("compass").split(",")[Math.round(deg / 45) % 8];
 }
 
+/** Links come from third-party data; export already drops non-http(s) URLs, this is a backstop. */
+function webUrl(url) {
+  try { return ["http:", "https:"].includes(new URL(url).protocol) ? url : null; } catch { return null; }
+}
+
 function evidenceLabel(e, i) {
   if (e.source === "inaturalist") return `iNaturalist ${i + 1}`;
   try { return new URL(e.link).hostname.replace(/^www\./, ""); } catch { return String(i + 1); }
@@ -793,7 +798,8 @@ function renderCard(target, c) {
   if (c.is_famous_spot) bits.push(t("famous_spot"));
   li.querySelector(".meta").textContent = bits.join(" · ");
 
-  const photo = (c.evidence || []).find((e) => e.thumb);
+  const evidence = (c.evidence || []).filter((e) => webUrl(e.link));
+  const photo = evidence.find((e) => webUrl(e.thumb));
   if (photo) {
     const fig = li.querySelector(".evidence");
     fig.hidden = false;
@@ -805,12 +811,12 @@ function renderCard(target, c) {
   }
 
   const sources = li.querySelector(".sources");
-  if (c.evidence?.length) {
+  if (evidence.length) {
     const label = document.createElement("span");
     label.textContent = t("originals");
     sources.append(label);
   }
-  (c.evidence || []).forEach((e, i) => {
+  evidence.forEach((e, i) => {
     const a = document.createElement("a");
     a.href = e.link;
     a.rel = "noopener";

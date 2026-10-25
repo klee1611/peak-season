@@ -1,8 +1,10 @@
 import json
+import re
 
 import pytest
 
 from peakseason import aggregate, export
+from peakseason.config import ROOT
 
 from .conftest import NOW
 
@@ -67,3 +69,19 @@ def test_only_web_links_are_exported(targets, make_report):
     [cell] = aggregate.aggregate(targets["maple"], [bad, good], NOW, 7, [])
     links = [e["link"] for e in export.cell_json(cell)["evidence"]]
     assert links and all(link.startswith("https://") for link in links)
+
+
+def test_thumbnails_only_from_hosts_the_csp_allows():
+    ok = "https://inaturalist-open-data.s3.amazonaws.com/photos/1/medium.jpg"
+    assert export.thumb_url(ok) == ok
+    assert export.thumb_url("https://static.inaturalist.org/photos/1/medium.jpg")
+    assert export.thumb_url("https://evil.example/photo.jpg") is None
+    assert export.thumb_url("http://static.inaturalist.org/photos/1/medium.jpg") is None
+    assert export.thumb_url(None) is None
+
+
+def test_csp_img_src_matches_thumb_hosts():
+    headers = (ROOT / "site" / "_headers").read_text(encoding="utf-8")
+    img_src = re.search(r"img-src ([^;]+);", headers).group(1).split()
+    allowed = {u.removeprefix("https://") for u in img_src if u.startswith("https://")}
+    assert allowed == set(export.THUMB_HOSTS)

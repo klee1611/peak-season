@@ -50,7 +50,14 @@ async def get_json(
             if resp.status_code in RETRY_STATUSES and attempt < retries:
                 await asyncio.sleep(2**attempt)
                 continue
-            resp.raise_for_status()
+            if resp.is_error:
+                # Not raise_for_status(): httpx's message carries the full URL, query string and
+                # all, and callers log it, which would print the api_key.
+                raise httpx.HTTPStatusError(
+                    f"{label} GET {url} -> {resp.status_code}",
+                    request=resp.request,
+                    response=resp,
+                )
             return resp.json()
         except (httpx.TransportError, httpx.TimeoutException) as exc:
             log.warning("%s GET %s failed (%s), attempt %d", label, url, exc, attempt + 1)

@@ -31,7 +31,7 @@ def make_report():
             cell=geo.encode(lat, lng),
             observed_at=NOW - timedelta(days=age_days),
             link=f"https://www.inaturalist.org/observations/{n}",
-            photo_url=f"https://example.org/photos/{n}/medium.jpg",
+            photo_url=f"https://inaturalist-open-data.s3.amazonaws.com/photos/{n}/medium.jpg",
             license="cc-by",
             attribution=f"(c) someone {n}, some rights reserved (CC BY)",
             stage=stage,
