@@ -1064,6 +1064,12 @@
   }
  },
  "2026-10-25": {
+  "algonquin-park-visitor-centre": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
   "arnold-arboretum": {
    "maple": {
     "reports": 4,
@@ -1094,11 +1100,25 @@
     "stage": "peak"
    }
   },
-  "stanley-park": {
+  "mount-royal-park": {
    "maple": {
-    "reports": 2,
-    "stage": "turning"
-   },
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "philosopher-s-path": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "shinjuku-gyoen": {
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "stanley-park": {
    "sakura": {
     "reports": 1,
     "stage": "not_enough_reports"
@@ -1108,6 +1128,12 @@
    "maple": {
     "reports": 1,
     "stage": "not_enough_reports"
+   }
+  },
+  "ueno-park": {
+   "sakura": {
+    "reports": 3,
+    "stage": "full_bloom"
    }
   }
  }
