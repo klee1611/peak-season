@@ -1138,12 +1138,6 @@
   }
  },
  "2026-10-26": {
-  "algonquin-park-visitor-centre": {
-   "maple": {
-    "reports": 1,
-    "stage": "not_enough_reports"
-   }
-  },
   "arnold-arboretum": {
    "maple": {
     "reports": 3,
@@ -1154,6 +1148,12 @@
    "maple": {
     "reports": 5,
     "stage": "turning"
+   }
+  },
+  "central-park": {
+   "maple": {
+    "reports": 2,
+    "stage": "peak"
    }
   },
   "gatineau-park": {
@@ -1168,13 +1168,13 @@
     "stage": "not_enough_reports"
    }
   },
-  "mount-royal-park": {
+  "lake-ch-zenji-nikk": {
    "maple": {
-    "reports": 2,
-    "stage": "turning"
+    "reports": 1,
+    "stage": "not_enough_reports"
    }
   },
-  "philosopher-s-path": {
+  "mount-royal-park": {
    "maple": {
     "reports": 1,
     "stage": "not_enough_reports"
@@ -1182,24 +1182,14 @@
   },
   "shinjuku-gyoen": {
    "maple": {
-    "reports": 1,
-    "stage": "not_enough_reports"
-   },
-   "sakura": {
-    "reports": 1,
-    "stage": "not_enough_reports"
+    "reports": 2,
+    "stage": "green"
    }
   },
-  "stanley-park": {
-   "sakura": {
+  "t-fuku-ji": {
+   "maple": {
     "reports": 1,
     "stage": "not_enough_reports"
-   }
-  },
-  "ueno-park": {
-   "sakura": {
-    "reports": 3,
-    "stage": "full_bloom"
    }
   }
  }
