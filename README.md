@@ -11,10 +11,10 @@ directions in your own map app. Decide, tap Directions, go outside.
 
 Built for the DEV Hacktoberfest Open-Source AI Challenge, Week 1: "Touch Grass".
 
-[![Watch the 47-second demo on YouTube](docs/demo-poster.jpg)](https://youtu.be/sB6V2_vK_bE)
+https://github.com/user-attachments/assets/53d83446-c5e5-4a5c-b9e7-df35e5553344
 
 - **Live site:** https://peak-season-dvl.pages.dev/
-- **Demo video (47 s):** https://youtu.be/sB6V2_vK_bE
+- **Demo video (47 s):** plays above, or in full HD on YouTube: https://youtu.be/sB6V2_vK_bE
 - **Runs at $0/month:** a static site plus a scheduled GitHub Actions job. No servers, no
   database, no paid APIs required.
 
@@ -151,7 +151,7 @@ The challenge closed on Oct 11, 2026. Commits since then, apart from the schedul
   unit, accessibility fixes).
 - **Oct 25:** Security hardening (API keys kept out of error messages, `certifi` update, GitHub
   Actions pinned to commit SHAs, Ollama installed from a hash-checked release, tighter CSP).
-- **Oct 25:** Demo video and the `demo/` scripts that build it.
+- **Oct 25:** Demo video and the `demo/` scripts that build it, embedded in this README.
 
 ## License
 

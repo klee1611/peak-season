@@ -94,7 +94,7 @@ const render = async (html, file) => {
   await page.screenshot({ path: `${OUT}${file}` });
   console.log(file);
 };
-// README poster: the title card with a play button (GitHub can't embed a player).
+// Poster: the title card with a play button, for a YouTube custom thumbnail.
 const title = SCENES.find((s) => s.id === "title");
 await render(`${cardHtml(title)}<div class="play"></div>`, "poster.png");
 for (const s of SCENES) {

@@ -74,3 +74,12 @@ ffmpeg([
   final,
 ]);
 console.log(`${final}: ${duration(final).toFixed(1)}s`);
+
+// README copy: GitHub plays uploaded videos inline (10 MB cap), so 720p, silent, ~1.4 MB.
+const readme = `${OUT}peak-season-demo-720p.mp4`;
+ffmpeg([
+  "-i", final, "-vf", "scale=1280:720:flags=lanczos",
+  "-c:v", "libx264", "-preset", "slow", "-crf", "24", "-pix_fmt", "yuv420p", "-an", "-movflags", "+faststart",
+  readme,
+]);
+console.log(readme);
