@@ -1202,7 +1202,7 @@
   },
   "brooklyn-botanic-garden": {
    "maple": {
-    "reports": 5,
+    "reports": 8,
     "stage": "turning"
    }
   },
@@ -1213,12 +1213,6 @@
    }
   },
   "fushoushan-farm": {
-   "maple": {
-    "reports": 1,
-    "stage": "not_enough_reports"
-   }
-  },
-  "gatineau-park": {
    "maple": {
     "reports": 1,
     "stage": "not_enough_reports"
