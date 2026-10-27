@@ -1192,5 +1192,79 @@
     "stage": "not_enough_reports"
    }
   }
+ },
+ "2026-10-27": {
+  "arnold-arboretum": {
+   "maple": {
+    "reports": 3,
+    "stage": "turning"
+   }
+  },
+  "brooklyn-botanic-garden": {
+   "maple": {
+    "reports": 5,
+    "stage": "turning"
+   }
+  },
+  "central-park": {
+   "maple": {
+    "reports": 2,
+    "stage": "peak"
+   }
+  },
+  "fushoushan-farm": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "gatineau-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "high-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "lake-ch-zenji-nikk": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "mount-royal-park": {
+   "maple": {
+    "reports": 3,
+    "stage": "peak"
+   }
+  },
+  "mount-takao": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "shinjuku-gyoen": {
+   "maple": {
+    "reports": 2,
+    "stage": "green"
+   }
+  },
+  "stanley-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "t-fuku-ji": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  }
  }
 }
