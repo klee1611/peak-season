@@ -1264,14 +1264,20 @@
  "2026-10-28": {
   "arnold-arboretum": {
    "maple": {
-    "reports": 3,
-    "stage": "turning"
+    "reports": 1,
+    "stage": "not_enough_reports"
    }
   },
   "brooklyn-botanic-garden": {
    "maple": {
     "reports": 9,
     "stage": "turning"
+   }
+  },
+  "central-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
    }
   },
   "fushoushan-farm": {
@@ -1292,6 +1298,12 @@
     "stage": "not_enough_reports"
    }
   },
+  "lake-ch-zenji-nikk": {
+   "maple": {
+    "reports": 2,
+    "stage": "turning"
+   }
+  },
   "mount-royal-park": {
    "maple": {
     "reports": 3,
@@ -1306,11 +1318,17 @@
   },
   "shinjuku-gyoen": {
    "maple": {
-    "reports": 1,
-    "stage": "not_enough_reports"
+    "reports": 2,
+    "stage": "turning"
    }
   },
   "stanley-park": {
+   "maple": {
+    "reports": 2,
+    "stage": "turning"
+   }
+  },
+  "westonbirt-arboretum": {
    "maple": {
     "reports": 1,
     "stage": "not_enough_reports"
