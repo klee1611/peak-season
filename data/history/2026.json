@@ -1366,16 +1366,16 @@
     "stage": "not_enough_reports"
    }
   },
-  "gatineau-park": {
-   "maple": {
-    "reports": 2,
-    "stage": "peak"
-   }
-  },
   "high-park": {
    "maple": {
     "reports": 1,
     "stage": "not_enough_reports"
+   }
+  },
+  "kew-gardens": {
+   "maple": {
+    "reports": 3,
+    "stage": "green"
    }
   },
   "lake-ch-zenji-nikk": {
