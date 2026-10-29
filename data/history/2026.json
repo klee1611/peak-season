@@ -1334,5 +1334,85 @@
     "stage": "not_enough_reports"
    }
   }
+ },
+ "2026-10-29": {
+  "algonquin-park-visitor-centre": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "arnold-arboretum": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "brooklyn-botanic-garden": {
+   "maple": {
+    "reports": 9,
+    "stage": "turning"
+   }
+  },
+  "central-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "fushoushan-farm": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "gatineau-park": {
+   "maple": {
+    "reports": 2,
+    "stage": "peak"
+   }
+  },
+  "high-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "lake-ch-zenji-nikk": {
+   "maple": {
+    "reports": 2,
+    "stage": "turning"
+   }
+  },
+  "mount-royal-park": {
+   "maple": {
+    "reports": 2,
+    "stage": "peak"
+   }
+  },
+  "mount-takao": {
+   "maple": {
+    "reports": 3,
+    "stage": "turning"
+   }
+  },
+  "shinjuku-gyoen": {
+   "maple": {
+    "reports": 2,
+    "stage": "turning"
+   }
+  },
+  "stanley-park": {
+   "maple": {
+    "reports": 2,
+    "stage": "turning"
+   }
+  },
+  "westonbirt-arboretum": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  }
  }
 }
