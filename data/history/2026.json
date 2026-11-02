@@ -1570,5 +1570,49 @@
     "stage": "not_enough_reports"
    }
   }
+ },
+ "2026-11-02": {
+  "arnold-arboretum": {
+   "maple": {
+    "reports": 6,
+    "stage": "peak"
+   }
+  },
+  "brooklyn-botanic-garden": {
+   "maple": {
+    "reports": 6,
+    "stage": "turning"
+   }
+  },
+  "fushoushan-farm": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "kew-gardens": {
+   "maple": {
+    "reports": 3,
+    "stage": "green"
+   }
+  },
+  "mount-royal-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "stanley-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "ueno-park": {
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  }
  }
 }
