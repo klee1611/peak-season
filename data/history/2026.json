@@ -1612,13 +1612,13 @@
  "2026-11-03": {
   "arnold-arboretum": {
    "maple": {
-    "reports": 6,
+    "reports": 9,
     "stage": "peak"
    }
   },
   "brooklyn-botanic-garden": {
    "maple": {
-    "reports": 7,
+    "reports": 2,
     "stage": "turning"
    }
   },
@@ -1629,6 +1629,12 @@
    }
   },
   "mount-royal-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "stanley-park": {
    "maple": {
     "reports": 1,
     "stage": "not_enough_reports"
