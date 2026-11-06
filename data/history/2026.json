@@ -1738,13 +1738,7 @@
   },
   "arnold-arboretum": {
    "maple": {
-    "reports": 9,
-    "stage": "peak"
-   }
-  },
-  "brooklyn-botanic-garden": {
-   "maple": {
-    "reports": 2,
+    "reports": 7,
     "stage": "turning"
    }
   },
@@ -1752,12 +1746,6 @@
    "maple": {
     "reports": 3,
     "stage": "green"
-   }
-  },
-  "mount-royal-park": {
-   "maple": {
-    "reports": 1,
-    "stage": "not_enough_reports"
    }
   },
   "naejangsan": {
