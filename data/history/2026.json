@@ -1914,14 +1914,20 @@
   },
   "arnold-arboretum": {
    "maple": {
-    "reports": 8,
+    "reports": 5,
     "stage": "peak"
    }
   },
   "brooklyn-botanic-garden": {
    "maple": {
-    "reports": 1,
-    "stage": "not_enough_reports"
+    "reports": 2,
+    "stage": "peak"
+   }
+  },
+  "central-park": {
+   "maple": {
+    "reports": 2,
+    "stage": "peak"
    }
   },
   "high-park": {
@@ -1936,16 +1942,22 @@
     "stage": "green"
    }
   },
-  "mount-royal-park": {
+  "naejangsan": {
+   "maple": {
+    "reports": 2,
+    "stage": "peak"
+   }
+  },
+  "shinjuku-gyoen": {
    "maple": {
     "reports": 1,
     "stage": "not_enough_reports"
    }
   },
-  "naejangsan": {
+  "westonbirt-arboretum": {
    "maple": {
-    "reports": 2,
-    "stage": "peak"
+    "reports": 1,
+    "stage": "not_enough_reports"
    }
   }
  }
