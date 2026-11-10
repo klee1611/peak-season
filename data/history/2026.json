@@ -1904,5 +1904,49 @@
     "stage": "peak"
    }
   }
+ },
+ "2026-11-10": {
+  "arashiyama": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "arnold-arboretum": {
+   "maple": {
+    "reports": 8,
+    "stage": "peak"
+   }
+  },
+  "brooklyn-botanic-garden": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "high-park": {
+   "maple": {
+    "reports": 2,
+    "stage": "peak"
+   }
+  },
+  "kew-gardens": {
+   "maple": {
+    "reports": 3,
+    "stage": "green"
+   }
+  },
+  "mount-royal-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "naejangsan": {
+   "maple": {
+    "reports": 2,
+    "stage": "peak"
+   }
+  }
  }
 }
