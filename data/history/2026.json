@@ -2114,7 +2114,7 @@
   },
   "arnold-arboretum": {
    "maple": {
-    "reports": 8,
+    "reports": 6,
     "stage": "peak"
    }
   },
@@ -2126,8 +2126,8 @@
   },
   "fushoushan-farm": {
    "maple": {
-    "reports": 1,
-    "stage": "not_enough_reports"
+    "reports": 4,
+    "stage": "peak"
    }
   },
   "gatineau-park": {
