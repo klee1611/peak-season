@@ -2104,5 +2104,55 @@
     "stage": "not_enough_reports"
    }
   }
+ },
+ "2026-11-14": {
+  "arashiyama": {
+   "maple": {
+    "reports": 2,
+    "stage": "turning"
+   }
+  },
+  "arnold-arboretum": {
+   "maple": {
+    "reports": 8,
+    "stage": "peak"
+   }
+  },
+  "central-park": {
+   "maple": {
+    "reports": 2,
+    "stage": "peak"
+   }
+  },
+  "fushoushan-farm": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "gatineau-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "high-park": {
+   "maple": {
+    "reports": 3,
+    "stage": "peak"
+   }
+  },
+  "mount-royal-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "stanley-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  }
  }
 }
