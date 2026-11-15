@@ -2156,27 +2156,21 @@
   }
  },
  "2026-11-15": {
-  "arashiyama": {
-   "maple": {
-    "reports": 2,
-    "stage": "turning"
-   }
-  },
   "arnold-arboretum": {
    "maple": {
-    "reports": 6,
+    "reports": 5,
+    "stage": "peak"
+   }
+  },
+  "central-park": {
+   "maple": {
+    "reports": 2,
     "stage": "peak"
    }
   },
   "fushoushan-farm": {
    "maple": {
-    "reports": 7,
-    "stage": "peak"
-   }
-  },
-  "high-park": {
-   "maple": {
-    "reports": 2,
+    "reports": 9,
     "stage": "peak"
    }
   },
