@@ -2180,5 +2180,43 @@
     "stage": "not_enough_reports"
    }
   }
+ },
+ "2026-11-16": {
+  "arnold-arboretum": {
+   "maple": {
+    "reports": 5,
+    "stage": "peak"
+   }
+  },
+  "central-park": {
+   "maple": {
+    "reports": 2,
+    "stage": "peak"
+   }
+  },
+  "fushoushan-farm": {
+   "maple": {
+    "reports": 9,
+    "stage": "peak"
+   }
+  },
+  "mount-royal-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "mount-takao": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "shinjuku-gyoen": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  }
  }
 }
