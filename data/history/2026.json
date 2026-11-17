@@ -2220,21 +2220,9 @@
   }
  },
  "2026-11-17": {
-  "alishan": {
-   "sakura": {
-    "reports": 1,
-    "stage": "not_enough_reports"
-   }
-  },
   "arnold-arboretum": {
    "maple": {
     "reports": 5,
-    "stage": "peak"
-   }
-  },
-  "central-park": {
-   "maple": {
-    "reports": 2,
     "stage": "peak"
    }
   },
@@ -2252,8 +2240,8 @@
   },
   "mount-takao": {
    "maple": {
-    "reports": 1,
-    "stage": "not_enough_reports"
+    "reports": 2,
+    "stage": "turning"
    }
   },
   "shinjuku-gyoen": {
