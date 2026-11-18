@@ -2260,8 +2260,8 @@
   },
   "arnold-arboretum": {
    "maple": {
-    "reports": 6,
-    "stage": "peak"
+    "reports": 4,
+    "stage": "past_peak"
    }
   },
   "fushoushan-farm": {
@@ -2302,6 +2302,18 @@
   },
   "shinjuku-gyoen": {
    "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "tidal-basin": {
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "yangmingshan": {
+   "sakura": {
     "reports": 1,
     "stage": "not_enough_reports"
    }
