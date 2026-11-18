@@ -2222,7 +2222,7 @@
  "2026-11-17": {
   "arnold-arboretum": {
    "maple": {
-    "reports": 5,
+    "reports": 6,
     "stage": "peak"
    }
   },
@@ -2232,6 +2232,12 @@
     "stage": "peak"
    }
   },
+  "kew-gardens": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
   "mount-royal-park": {
    "maple": {
     "reports": 1,
@@ -2239,12 +2245,6 @@
    }
   },
   "mount-takao": {
-   "maple": {
-    "reports": 2,
-    "stage": "turning"
-   }
-  },
-  "shinjuku-gyoen": {
    "maple": {
     "reports": 1,
     "stage": "not_enough_reports"
