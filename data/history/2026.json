@@ -2332,12 +2332,6 @@
     "stage": "past_peak"
    }
   },
-  "kew-gardens": {
-   "maple": {
-    "reports": 1,
-    "stage": "not_enough_reports"
-   }
-  },
   "mount-macedon": {
    "maple": {
     "reports": 1,
@@ -2346,8 +2340,8 @@
   },
   "mount-royal-park": {
    "maple": {
-    "reports": 2,
-    "stage": "turning"
+    "reports": 1,
+    "stage": "not_enough_reports"
    }
   },
   "mount-takao": {
