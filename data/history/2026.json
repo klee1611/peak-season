@@ -2498,5 +2498,55 @@
     "stage": "not_enough_reports"
    }
   }
+ },
+ "2026-11-22": {
+  "arashiyama": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "arnold-arboretum": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "gatineau-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "mount-royal-park": {
+   "maple": {
+    "reports": 4,
+    "stage": "turning"
+   }
+  },
+  "mount-takao": {
+   "maple": {
+    "reports": 3,
+    "stage": "peak"
+   }
+  },
+  "shinjuku-gyoen": {
+   "maple": {
+    "reports": 2,
+    "stage": "turning"
+   }
+  },
+  "tidal-basin": {
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "yangmingshan": {
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  }
  }
 }
