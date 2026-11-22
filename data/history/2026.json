@@ -2500,19 +2500,25 @@
   }
  },
  "2026-11-22": {
-  "arashiyama": {
-   "maple": {
-    "reports": 1,
-    "stage": "not_enough_reports"
-   }
-  },
   "arnold-arboretum": {
    "maple": {
     "reports": 1,
     "stage": "not_enough_reports"
    }
   },
+  "central-park": {
+   "maple": {
+    "reports": 3,
+    "stage": "peak"
+   }
+  },
   "gatineau-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "high-park": {
    "maple": {
     "reports": 1,
     "stage": "not_enough_reports"
@@ -2524,16 +2530,16 @@
     "stage": "turning"
    }
   },
-  "mount-takao": {
-   "maple": {
-    "reports": 3,
-    "stage": "peak"
-   }
-  },
   "shinjuku-gyoen": {
    "maple": {
-    "reports": 2,
-    "stage": "turning"
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "stanley-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
    }
   },
   "tidal-basin": {
@@ -2543,6 +2549,12 @@
    }
   },
   "yangmingshan": {
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "yeouido": {
    "sakura": {
     "reports": 1,
     "stage": "not_enough_reports"
