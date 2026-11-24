@@ -2658,12 +2658,6 @@
     "stage": "not_enough_reports"
    }
   },
-  "central-park": {
-   "maple": {
-    "reports": 3,
-    "stage": "peak"
-   }
-  },
   "gatineau-park": {
    "maple": {
     "reports": 1,
@@ -2700,12 +2694,6 @@
     "stage": "not_enough_reports"
    },
    "sakura": {
-    "reports": 1,
-    "stage": "not_enough_reports"
-   }
-  },
-  "stanley-park": {
-   "maple": {
     "reports": 1,
     "stage": "not_enough_reports"
    }
