@@ -2722,5 +2722,65 @@
     "stage": "full_bloom"
    }
   }
+ },
+ "2026-11-25": {
+  "arnold-arboretum": {
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "central-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "mount-royal-park": {
+   "maple": {
+    "reports": 6,
+    "stage": "turning"
+   }
+  },
+  "shinjuku-gyoen": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   },
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "stanley-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "tidal-basin": {
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "ueno-park": {
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "westonbirt-arboretum": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "yangmingshan": {
+   "sakura": {
+    "reports": 2,
+    "stage": "full_bloom"
+   }
+  }
  }
 }
