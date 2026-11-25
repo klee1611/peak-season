@@ -2724,13 +2724,31 @@
   }
  },
  "2026-11-25": {
+  "arashiyama": {
+   "maple": {
+    "reports": 2,
+    "stage": "peak"
+   }
+  },
   "arnold-arboretum": {
    "sakura": {
     "reports": 1,
     "stage": "not_enough_reports"
    }
   },
+  "brooklyn-botanic-garden": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
   "central-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "gatineau-park": {
    "maple": {
     "reports": 1,
     "stage": "not_enough_reports"
@@ -2742,10 +2760,16 @@
     "stage": "turning"
    }
   },
+  "mount-takao": {
+   "maple": {
+    "reports": 5,
+    "stage": "peak"
+   }
+  },
   "shinjuku-gyoen": {
    "maple": {
-    "reports": 1,
-    "stage": "not_enough_reports"
+    "reports": 2,
+    "stage": "turning"
    },
    "sakura": {
     "reports": 1,
@@ -2758,6 +2782,12 @@
     "stage": "not_enough_reports"
    }
   },
+  "t-fuku-ji": {
+   "maple": {
+    "reports": 3,
+    "stage": "peak"
+   }
+  },
   "tidal-basin": {
    "sakura": {
     "reports": 1,
@@ -2765,6 +2795,10 @@
    }
   },
   "ueno-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   },
    "sakura": {
     "reports": 1,
     "stage": "not_enough_reports"
