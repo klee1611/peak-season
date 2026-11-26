@@ -2816,5 +2816,79 @@
     "stage": "full_bloom"
    }
   }
+ },
+ "2026-11-26": {
+  "arashiyama": {
+   "maple": {
+    "reports": 2,
+    "stage": "peak"
+   }
+  },
+  "brooklyn-botanic-garden": {
+   "maple": {
+    "reports": 2,
+    "stage": "peak"
+   }
+  },
+  "central-park": {
+   "maple": {
+    "reports": 2,
+    "stage": "turning"
+   }
+  },
+  "gatineau-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "mount-royal-park": {
+   "maple": {
+    "reports": 5,
+    "stage": "turning"
+   }
+  },
+  "mount-takao": {
+   "maple": {
+    "reports": 5,
+    "stage": "peak"
+   }
+  },
+  "shinjuku-gyoen": {
+   "maple": {
+    "reports": 2,
+    "stage": "turning"
+   }
+  },
+  "stanley-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "t-fuku-ji": {
+   "maple": {
+    "reports": 3,
+    "stage": "peak"
+   }
+  },
+  "tidal-basin": {
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "ueno-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "westonbirt-arboretum": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  }
  }
 }
