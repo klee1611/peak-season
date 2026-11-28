@@ -2970,5 +2970,85 @@
     "stage": "not_enough_reports"
    }
   }
+ },
+ "2026-11-28": {
+  "arashiyama": {
+   "maple": {
+    "reports": 2,
+    "stage": "peak"
+   }
+  },
+  "brooklyn-botanic-garden": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "central-park": {
+   "maple": {
+    "reports": 4,
+    "stage": "turning"
+   }
+  },
+  "fushoushan-farm": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "kew-gardens": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "mount-royal-park": {
+   "maple": {
+    "reports": 4,
+    "stage": "peak"
+   }
+  },
+  "mount-takao": {
+   "maple": {
+    "reports": 5,
+    "stage": "peak"
+   }
+  },
+  "shinjuku-gyoen": {
+   "maple": {
+    "reports": 3,
+    "stage": "peak"
+   }
+  },
+  "stanley-park": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "t-fuku-ji": {
+   "maple": {
+    "reports": 2,
+    "stage": "peak"
+   }
+  },
+  "tidal-basin": {
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "westonbirt-arboretum": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "yangmingshan": {
+   "sakura": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  }
  }
 }
