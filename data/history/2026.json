@@ -3014,9 +3014,21 @@
     "stage": "peak"
    }
   },
+  "mount-wilson": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
+  "philosopher-s-path": {
+   "maple": {
+    "reports": 1,
+    "stage": "not_enough_reports"
+   }
+  },
   "shinjuku-gyoen": {
    "maple": {
-    "reports": 3,
+    "reports": 2,
     "stage": "peak"
    }
   },
@@ -3040,12 +3052,6 @@
   },
   "westonbirt-arboretum": {
    "maple": {
-    "reports": 1,
-    "stage": "not_enough_reports"
-   }
-  },
-  "yangmingshan": {
-   "sakura": {
     "reports": 1,
     "stage": "not_enough_reports"
    }
